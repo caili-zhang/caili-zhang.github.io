@@ -121,6 +121,9 @@
 
 
 
+  <meta property="fb:admins" content="100002389393442" />
+  <meta property="fb:app_id" content="1520960688030232" />
+
 
 
 <meta name="description" content="参考资料 主要代码参考了这个系列的视频，但是这个视频是基于python2的，opencv也不是最新版本，以下代码做了python3更新。 beta版完整的代码在我的Github上 目标 从摄像头切取20张同一人的脸部照片 对20张照片进行学习，生产识别器Classifier 使用识别器，识别出人脸取得相应的人名 按照识别出的人名，自动作出语音回应“你好 XX ”  操作环境 windows10 ，">
@@ -172,6 +175,24 @@
 
   <title>用Python写一个简单的脸部识别项目 | caili blog</title>
   
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1520960688030232',
+      xfbml      : true,
+      version    : 'v2.10'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_Hans/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 
 
 
@@ -470,14 +491,17 @@
         
 
         
+          <div class="social-like">
+            
 
-        
-          
-          <div id="needsharebutton-postbottom">
-            <span class="btn">
-              <i class="fa fa-share-alt" aria-hidden="true"></i>
-            </span>
+            
+              <div class="fb_like">
+                <div class="fb-like" data-layout="button_count" data-share="true"></div>
+              </div>
+            
           </div>
+        
+
         
         </div>
       
@@ -497,6 +521,36 @@
 
 
     <div class="post-spread">
+      
+        <!--MOB SHARE BEGIN-->
+                             <div class="-mob-share-ui-button -mob-share-open">分享</div>
+                             <div class="-mob-share-ui" style="display: none">
+                                 <ul class="-mob-share-list">
+                                     <li class="-mob-share-weibo"><p>新浪微博</p></li>
+                                     <li class="-mob-share-tencentweibo"><p>腾讯微博</p></li>
+                                     <li class="-mob-share-qzone"><p>QQ空间</p></li>
+                                     <li class="-mob-share-qq"><p>QQ好友</p></li>
+                                     <li class="-mob-share-weixin"><p>微信</p></li>
+                                     <li class="-mob-share-douban"><p>豆瓣</p></li>
+                                     <li class="-mob-share-renren"><p>人人网</p></li>
+                                     <li class="-mob-share-kaixin"><p>开心网</p></li>
+                                     <li class="-mob-share-facebook"><p>Facebook</p></li>
+                                     <li class="-mob-share-twitter"><p>Twitter</p></li>
+                                     <li class="-mob-share-pocket"><p>Pocket</p></li>
+                                     <li class="-mob-share-google"><p>Google+</p></li>
+                                     <li class="-mob-share-youdao"><p>有道云笔记</p></li>
+                                     <li class="-mob-share-mingdao"><p>明道</p></li>
+                                     <li class="-mob-share-pengyou"><p>朋友网</p></li>
+                                     <li class="-mob-share-tumblr"><p>Tumblr</p></li>
+                                     <li class="-mob-share-instapaper"><p>Instapaper</p></li>
+                                     <li class="-mob-share-linkedin"><p>LinkedIn</p></li>
+                                 </ul>
+                                 <div class="-mob-share-close">取消</div>
+                             </div>
+                             <div class="-mob-share-ui-bg"></div>
+                             <script id="-mob-share" src="http://f1.webshare.mob.com/code/mob-share.js?appkey=231d89007994e"></script>
+                             <!--MOB SHARE END-->
+
       
     </div>
   </div>
@@ -874,31 +928,6 @@
   
 
   
-  
-  
-  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
-
-  
-  
-  <script src="/lib/needsharebutton/needsharebutton.js"></script>
-
-  <script>
-    
-      pbOptions = {};
-      
-          pbOptions.iconStyle = "box";
-      
-          pbOptions.boxForm = "horizontal";
-      
-          pbOptions.position = "bottomCenter";
-      
-          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
-      
-      new needShareButton('#needsharebutton-postbottom', pbOptions);
-    
-    
-  </script>
-
   
 
   
