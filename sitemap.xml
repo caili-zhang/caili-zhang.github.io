@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://caili-zhang.github.io/2017/12/18/python-multi-threading/</loc>
+    
+    <lastmod>2017-12-18T11:14:13.882Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://caili-zhang.github.io/2017/12/18/how-to-build-hexo-next-blog/</loc>
     
     <lastmod>2017-12-18T10:51:14.680Z</lastmod>
