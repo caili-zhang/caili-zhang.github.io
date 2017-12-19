@@ -5,18 +5,20 @@
   
 
   
-  <title>Tag: hexo | caili blog</title>
+  <title>python爬虫【学习资料】 | caili blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="好记性不如烂键盘，不懂就先敲出来">
-<meta property="og:type" content="website">
-<meta property="og:title" content="caili blog">
-<meta property="og:url" content="https://caili-zhang.github.io/tags/hexo/index.html">
+  <meta name="description" content="爬虫干嘛用有时候看别人写的网站很不错，想整个下载下来学习学习，但是不可能每个页面都点过去右键保存吧，这就需要爬虫来自动下载网页。 谷歌搜索也是基于爬虫自动保存了大量网页在数据库中才能索引的到。 crawler VS. scraping scraping就是将目标网站的html扒下来 crawler 和scraping的不同之处，爬虫会从一个根网址，自动爬到这个页面所连接的网页，也就是说给爬虫一个门">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python爬虫【学习资料】">
+<meta property="og:url" content="https://caili-zhang.github.io/2017/12/20/python-crawler-tutorial/index.html">
 <meta property="og:site_name" content="caili blog">
-<meta property="og:description" content="好记性不如烂键盘，不懂就先敲出来">
+<meta property="og:description" content="爬虫干嘛用有时候看别人写的网站很不错，想整个下载下来学习学习，但是不可能每个页面都点过去右键保存吧，这就需要爬虫来自动下载网页。 谷歌搜索也是基于爬虫自动保存了大量网页在数据库中才能索引的到。 crawler VS. scraping scraping就是将目标网站的html扒下来 crawler 和scraping的不同之处，爬虫会从一个根网址，自动爬到这个页面所连接的网页，也就是说给爬虫一个门">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-19T18:39:20.139Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="caili blog">
-<meta name="twitter:description" content="好记性不如烂键盘，不懂就先敲出来">
+<meta name="twitter:title" content="python爬虫【学习资料】">
+<meta name="twitter:description" content="爬虫干嘛用有时候看别人写的网站很不错，想整个下载下来学习学习，但是不可能每个页面都点过去右键保存吧，这就需要爬虫来自动下载网页。 谷歌搜索也是基于爬虫自动保存了大量网页在数据库中才能索引的到。 crawler VS. scraping scraping就是将目标网站的html扒下来 crawler 和scraping的不同之处，爬虫会从一个根网址，自动爬到这个页面所连接的网页，也就是说给爬虫一个门">
   
     <link rel="alternate" href="/atom.xml" title="caili blog" type="application/atom+xml">
   
@@ -63,41 +65,79 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/12/18/how-to-build-hexo-next-blog/" class="archive-article-date">
-  <time datetime="2017-12-18T10:20:16.000Z" itemprop="datePublished">Dec 18</time>
+        <section id="main"><article id="post-python-crawler-tutorial" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/20/python-crawler-tutorial/" class="article-date">
+  <time datetime="2017-12-19T17:29:31.000Z" itemprop="datePublished">2017-12-20</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/programming/">programming</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/18/how-to-build-hexo-next-blog/">零基础学习在github上搭建hexo个人博客</a>
+    <h1 class="article-title" itemprop="name">
+      python爬虫【学习资料】
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="爬虫干嘛用"><a href="#爬虫干嘛用" class="headerlink" title="爬虫干嘛用"></a>爬虫干嘛用</h2><p>有时候看别人写的网站很不错，想整个下载下来学习学习，但是不可能每个页面都点过去右键保存吧，这就需要爬虫来自动下载网页。</p>
+<p>谷歌搜索也是基于爬虫自动保存了大量网页在数据库中才能索引的到。</p>
+<h2 id="crawler-VS-scraping"><a href="#crawler-VS-scraping" class="headerlink" title="crawler VS. scraping"></a>crawler VS. scraping</h2><ul>
+<li>scraping就是将目标网站的html扒下来</li>
+<li>crawler 和scraping的不同之处，爬虫会从一个根网址，自动爬到这个页面所连接的网页，也就是说给爬虫一个门户网站网址，可以把整个网站成千上万的网页全部扒下来</li>
+</ul>
+<h2 id="scraping"><a href="#scraping" class="headerlink" title="scraping"></a>scraping</h2><h3 id="库"><a href="#库" class="headerlink" title="库"></a>库</h3><ul>
+<li>beautifulsoup 解析得到的html数据</li>
+<li>scrapy 开源的爬虫</li>
+<li>urllib 向目标网址发起请求，得到数据<h3 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h3></li>
+</ul>
+<h2 id="Crawler"><a href="#Crawler" class="headerlink" title="Crawler"></a>Crawler</h2><h3 id="教程-1"><a href="#教程-1" class="headerlink" title="教程"></a>教程</h3><p>大神自个儿写了一个爬虫：</p>
+<p><a href="https://www.youtube.com/playlist?list=PL6gx4Cwl9DGA8Vys-f48mAH9OKSUyav0q" target="_blank" rel="noopener">youtube playlist的地址</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://caili-zhang.github.io/2017/12/20/python-crawler-tutorial/" data-id="cjbdyiz4b0005e4ue4ea2dtch" class="article-share-link">Share</a>
+      
+        <a href="https://caili-zhang.github.io/2017/12/20/python-crawler-tutorial/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/12/18/python-multi-threading/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">理解多线程【学习资料】</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
 </section>
         
           <aside id="sidebar">
@@ -196,11 +236,13 @@
 <script>
   var disqus_shortname = 'caili';
   
+  var disqus_url = 'https://caili-zhang.github.io/2017/12/20/python-crawler-tutorial/';
+  
   (function(){
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>
