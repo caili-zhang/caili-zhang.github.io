@@ -106,7 +106,7 @@
 
 
 
-  <meta name="keywords" content="python," />
+  <meta name="keywords" content="python,crawler,scraping,scrapy,selenium," />
 
 
 
@@ -120,18 +120,18 @@
 
 
 
-<meta name="description" content="爬虫干嘛用有时候看别人写的网站很不错，想整个下载下来学习学习，但是不可能每个页面都点过去右键保存吧，这就需要爬虫来自动下载网页。 谷歌搜索也是基于爬虫自动保存了大量网页在数据库中才能索引的到。 crawler VS. scraping scraping就是将目标网站的html扒下来 crawler 和scraping的不同之处，爬虫会从一个根网址，自动爬到这个页面所连接的网页，也就是说给爬虫一个门">
-<meta name="keywords" content="python">
+<meta name="description" content="爬虫干嘛用有时候看别人写的网站很不错，想整个下载下来学习学习，但是不可能每个页面都点过去右键保存吧，这就需要爬虫来自动下载网页。 谷歌搜索也是基于爬虫自动保存了大量网页在数据库中才能索引的到。 我想写个脚本能从视频网站上自动下载视频。 crawler VS. scraping scraping就是将目标网站的html扒下来 crawler 和scraping的不同之处，爬虫会从一个根网址，自动爬到">
+<meta name="keywords" content="python,crawler,scraping,scrapy,selenium">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python爬虫【学习资料】">
 <meta property="og:url" content="https://caili-zhang.github.io/2017/12/20/python-crawler-tutorial/index.html">
 <meta property="og:site_name" content="caili blog">
-<meta property="og:description" content="爬虫干嘛用有时候看别人写的网站很不错，想整个下载下来学习学习，但是不可能每个页面都点过去右键保存吧，这就需要爬虫来自动下载网页。 谷歌搜索也是基于爬虫自动保存了大量网页在数据库中才能索引的到。 crawler VS. scraping scraping就是将目标网站的html扒下来 crawler 和scraping的不同之处，爬虫会从一个根网址，自动爬到这个页面所连接的网页，也就是说给爬虫一个门">
+<meta property="og:description" content="爬虫干嘛用有时候看别人写的网站很不错，想整个下载下来学习学习，但是不可能每个页面都点过去右键保存吧，这就需要爬虫来自动下载网页。 谷歌搜索也是基于爬虫自动保存了大量网页在数据库中才能索引的到。 我想写个脚本能从视频网站上自动下载视频。 crawler VS. scraping scraping就是将目标网站的html扒下来 crawler 和scraping的不同之处，爬虫会从一个根网址，自动爬到">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-19T18:39:20.139Z">
+<meta property="og:updated_time" content="2017-12-20T00:51:11.089Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python爬虫【学习资料】">
-<meta name="twitter:description" content="爬虫干嘛用有时候看别人写的网站很不错，想整个下载下来学习学习，但是不可能每个页面都点过去右键保存吧，这就需要爬虫来自动下载网页。 谷歌搜索也是基于爬虫自动保存了大量网页在数据库中才能索引的到。 crawler VS. scraping scraping就是将目标网站的html扒下来 crawler 和scraping的不同之处，爬虫会从一个根网址，自动爬到这个页面所连接的网页，也就是说给爬虫一个门">
+<meta name="twitter:description" content="爬虫干嘛用有时候看别人写的网站很不错，想整个下载下来学习学习，但是不可能每个页面都点过去右键保存吧，这就需要爬虫来自动下载网页。 谷歌搜索也是基于爬虫自动保存了大量网页在数据库中才能索引的到。 我想写个脚本能从视频网站上自动下载视频。 crawler VS. scraping scraping就是将目标网站的html扒下来 crawler 和scraping的不同之处，爬虫会从一个根网址，自动爬到">
 
 
 
@@ -438,6 +438,7 @@
       
         <h2 id="爬虫干嘛用"><a href="#爬虫干嘛用" class="headerlink" title="爬虫干嘛用"></a>爬虫干嘛用</h2><p>有时候看别人写的网站很不错，想整个下载下来学习学习，但是不可能每个页面都点过去右键保存吧，这就需要爬虫来自动下载网页。</p>
 <p>谷歌搜索也是基于爬虫自动保存了大量网页在数据库中才能索引的到。</p>
+<p>我想写个脚本能从视频网站上自动下载视频。</p>
 <h2 id="crawler-VS-scraping"><a href="#crawler-VS-scraping" class="headerlink" title="crawler VS. scraping"></a>crawler VS. scraping</h2><ul>
 <li>scraping就是将目标网站的html扒下来</li>
 <li>crawler 和scraping的不同之处，爬虫会从一个根网址，自动爬到这个页面所连接的网页，也就是说给爬虫一个门户网站网址，可以把整个网站成千上万的网页全部扒下来</li>
@@ -445,10 +446,33 @@
 <h2 id="scraping"><a href="#scraping" class="headerlink" title="scraping"></a>scraping</h2><h3 id="库"><a href="#库" class="headerlink" title="库"></a>库</h3><ul>
 <li>beautifulsoup 解析得到的html数据</li>
 <li>scrapy 开源的爬虫</li>
-<li>urllib 向目标网址发起请求，得到数据<h3 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h3></li>
+<li>urllib 向目标网址发起请求，得到数据</li>
 </ul>
-<h2 id="Crawler"><a href="#Crawler" class="headerlink" title="Crawler"></a>Crawler</h2><h3 id="教程-1"><a href="#教程-1" class="headerlink" title="教程"></a>教程</h3><p>大神自个儿写了一个爬虫：</p>
+<h2 id="Crawler"><a href="#Crawler" class="headerlink" title="Crawler"></a>Crawler</h2><h3 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h3><p>大神newboston自个从零开始写了一个爬虫：</p>
 <p><a href="https://www.youtube.com/playlist?list=PL6gx4Cwl9DGA8Vys-f48mAH9OKSUyav0q" target="_blank" rel="noopener">youtube playlist的地址</a></p>
+<h2 id="如何抓取被隐藏的部分"><a href="#如何抓取被隐藏的部分" class="headerlink" title="如何抓取被隐藏的部分"></a>如何抓取被隐藏的部分</h2><p>有些网站的元素用chrome的开发窗口可以看到，但是用bs4就是抓不到。</p>
+<p>这篇文章介绍如何用scrapy 和Selenium 抓取这些隐藏的部分</p>
+<blockquote>
+<p>The data we want to scrap is generated dynamically and presented on the screen after interacting with the Web.<br>The data is loaded dynamically after some AJAX communication.</p>
+<p>from <a href="http://www.6020peaks.com/2014/12/how-to-scrape-hidden-web-data-with-python/" target="_blank" rel="noopener">How to scrape hidden Web data with Python</a></p>
+</blockquote>
+<h3 id="scrapy"><a href="#scrapy" class="headerlink" title="scrapy"></a>scrapy</h3><p><a href="https://doc.scrapy.org/en/latest/intro/install.html" target="_blank" rel="noopener">安装指南</a></p>
+<p>各种dependency的问题还是建议用anaconda安装吧，这又是一个坑</p>
+<p><code>conda install -c conda-forge scrapy</code></p>
+<h3 id="Selenium"><a href="#Selenium" class="headerlink" title="Selenium"></a>Selenium</h3><p>用程序模拟浏览器的功能，自动点击和网页互动，用于网页测试。</p>
+<p><a href="https://www.youtube.com/playlist?list=PLUY1lsOTtPeJNBuSweXS9pcSKbP4mr32S" target="_blank" rel="noopener">教程</a></p>
+<p><a href="https://qiita.com/motoki1990/items/a59a09c5966ce52128be" target="_blank" rel="noopener">Qiita </a></p>
+<p>感觉坑越挖越大了，我本来想做什么来着？？？下载视频啊。。。。</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h3><ul>
+<li>直接用beautiful soup下载下来的html不包含我要的视频下载链接<ul>
+<li>why？ 网页是动态页面，视频的部分不会立刻被显示出来，加载广告什么的需要时间</li>
+</ul>
+</li>
+<li>selenium监听网页，当某个标签被激活的时候下载整个html</li>
+<li>下载下来的html传递给beautiful soup 解析，抽取出视频地址</li>
+<li><code>urllib.request.urlretrieve(url,filename)</code> 保存视频</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"><span class="keyword">import</span> io</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line">sys.stdout = io.TextIOWrapper(sys.stdout.buffer,encoding=<span class="string">'utf8'</span>) <span class="comment">#坑！改变标准输出的默认编码,中文页面被python默认为gkb会乱码。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#将任意string写入文件</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">write_file</span><span class="params">(path,data)</span>:</span></span><br><span class="line">    f=open(path,<span class="string">'w'</span>,encoding=<span class="string">'utf8'</span>)<span class="comment">#encoding必须</span></span><br><span class="line">    f.write(data)</span><br><span class="line">    f.close()</span><br><span class="line"><span class="comment">#保存任意的链接后面的文件</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">download</span><span class="params">(url,filename)</span>:</span></span><br><span class="line">    urllib.request.urlretrieve(url,filename)</span><br><span class="line"></span><br><span class="line">url=<span class="string">"https://the-site-you-want-to-crawl"</span></span><br><span class="line"><span class="comment">#chrome操作器加载</span></span><br><span class="line"><span class="comment">#坑！chromedriver需要下载，并把PATH写在这里</span></span><br><span class="line">driver = webdriver.Chrome(<span class="string">"D:\workplace\chromedriver_win32\chromedriver.exe"</span>)</span><br><span class="line"></span><br><span class="line">driver.get(url)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="comment"># waits till the element with the specific id appears</span></span><br><span class="line">    WebDriverWait(driver, <span class="number">10</span>).until(EC.visibility_of_element_located((By.ID, <span class="string">"ykPlayer"</span>)))  </span><br><span class="line">    <span class="comment"># gets the html source of the page</span></span><br><span class="line">    src = driver.page_source  </span><br><span class="line">    src=str(src)</span><br><span class="line">    src.encode(<span class="string">"gbk"</span>,<span class="string">'ignore'</span>)<span class="comment">#</span></span><br><span class="line">    write_file(<span class="string">"src.html"</span>, src)</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    print(<span class="string">"Exception "</span>,format(e))</span><br><span class="line"></span><br><span class="line">f = open(<span class="string">'src.html'</span>,encoding=<span class="string">'utf8'</span>)</span><br><span class="line"><span class="comment"># file handle形式的html，soup才能打开</span></span><br><span class="line">html = f.read()</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line">soup = BeautifulSoup(html, <span class="string">"lxml"</span>)</span><br><span class="line"><span class="comment"># soup简单的检索，取得video 标签的部分，src后面的url</span></span><br><span class="line">video_url = soup.find(<span class="string">"video"</span>).get(<span class="string">"src"</span>)</span><br><span class="line"></span><br><span class="line">download(video_url,<span class="string">"myVideo.mp4"</span>)</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -510,6 +534,14 @@
         <div class="post-tags">
           
             <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/crawler/" rel="tag"># crawler</a>
+          
+            <a href="/tags/scraping/" rel="tag"># scraping</a>
+          
+            <a href="/tags/scrapy/" rel="tag"># scrapy</a>
+          
+            <a href="/tags/selenium/" rel="tag"># selenium</a>
           
         </div>
       
@@ -672,7 +704,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -741,7 +773,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#爬虫干嘛用"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x722C;&#x866B;&#x5E72;&#x561B;&#x7528;" class="headerlink" title="&#x722C;&#x866B;&#x5E72;&#x561B;&#x7528;"></a>&#x722C;&#x866B;&#x5E72;&#x561B;&#x7528;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#crawler-VS-scraping"><span class="nav-number">2.</span> <span class="nav-text"><a href="#crawler-VS-scraping" class="headerlink" title="crawler VS. scraping"></a>crawler VS. scraping</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scraping"><span class="nav-number">3.</span> <span class="nav-text"><a href="#scraping" class="headerlink" title="scraping"></a>scraping</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#库"><span class="nav-number">3.1.</span> <span class="nav-text"><a href="#&#x5E93;" class="headerlink" title="&#x5E93;"></a>&#x5E93;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#教程"><span class="nav-number">3.2.</span> <span class="nav-text"><a href="#&#x6559;&#x7A0B;" class="headerlink" title="&#x6559;&#x7A0B;"></a>&#x6559;&#x7A0B;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Crawler"><span class="nav-number">4.</span> <span class="nav-text"><a href="#Crawler" class="headerlink" title="Crawler"></a>Crawler</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#教程-1"><span class="nav-number">4.1.</span> <span class="nav-text"><a href="#&#x6559;&#x7A0B;-1" class="headerlink" title="&#x6559;&#x7A0B;"></a>&#x6559;&#x7A0B;</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#爬虫干嘛用"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x722C;&#x866B;&#x5E72;&#x561B;&#x7528;" class="headerlink" title="&#x722C;&#x866B;&#x5E72;&#x561B;&#x7528;"></a>&#x722C;&#x866B;&#x5E72;&#x561B;&#x7528;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#crawler-VS-scraping"><span class="nav-number">2.</span> <span class="nav-text"><a href="#crawler-VS-scraping" class="headerlink" title="crawler VS. scraping"></a>crawler VS. scraping</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scraping"><span class="nav-number">3.</span> <span class="nav-text"><a href="#scraping" class="headerlink" title="scraping"></a>scraping</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#库"><span class="nav-number">3.1.</span> <span class="nav-text"><a href="#&#x5E93;" class="headerlink" title="&#x5E93;"></a>&#x5E93;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Crawler"><span class="nav-number">4.</span> <span class="nav-text"><a href="#Crawler" class="headerlink" title="Crawler"></a>Crawler</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#教程"><span class="nav-number">4.1.</span> <span class="nav-text"><a href="#&#x6559;&#x7A0B;" class="headerlink" title="&#x6559;&#x7A0B;"></a>&#x6559;&#x7A0B;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何抓取被隐藏的部分"><span class="nav-number">5.</span> <span class="nav-text"><a href="#&#x5982;&#x4F55;&#x6293;&#x53D6;&#x88AB;&#x9690;&#x85CF;&#x7684;&#x90E8;&#x5206;" class="headerlink" title="&#x5982;&#x4F55;&#x6293;&#x53D6;&#x88AB;&#x9690;&#x85CF;&#x7684;&#x90E8;&#x5206;"></a>&#x5982;&#x4F55;&#x6293;&#x53D6;&#x88AB;&#x9690;&#x85CF;&#x7684;&#x90E8;&#x5206;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#scrapy"><span class="nav-number">5.1.</span> <span class="nav-text"><a href="#scrapy" class="headerlink" title="scrapy"></a>scrapy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Selenium"><span class="nav-number">5.2.</span> <span class="nav-text"><a href="#Selenium" class="headerlink" title="Selenium"></a>Selenium</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码实现"><span class="nav-number">6.</span> <span class="nav-text"><a href="#&#x4EE3;&#x7801;&#x5B9E;&#x73B0;" class="headerlink" title="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;"></a>&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本思路"><span class="nav-number">6.1.</span> <span class="nav-text"><a href="#&#x57FA;&#x672C;&#x601D;&#x8DEF;" class="headerlink" title="&#x57FA;&#x672C;&#x601D;&#x8DEF;"></a>&#x57FA;&#x672C;&#x601D;&#x8DEF;</span></a></li></ol></li></ol></div>
             
 
           </div>
