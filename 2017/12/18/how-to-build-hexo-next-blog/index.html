@@ -128,7 +128,7 @@
 <meta property="og:site_name" content="caili blog">
 <meta property="og:description" content="入门级简书上面有好多教程一步一步教你搭建看这个下面这个帖子就足够了。 使用Hexo在GitHub Pages上搭建部署免费的个人博客网站（下：Hexo部署）——最详细全面解读教程（没有之一） 大致流程 申请github账号 安装Node.js Node.js / npmをインストールする（for Windows）  安装hexo 1npm install hexo-cli -g  建立第一个帖子">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-19T18:41:17.938Z">
+<meta property="og:updated_time" content="2017-12-20T13:57:22.070Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="零基础学习在github上搭建hexo个人博客">
 <meta name="twitter:description" content="入门级简书上面有好多教程一步一步教你搭建看这个下面这个帖子就足够了。 使用Hexo在GitHub Pages上搭建部署免费的个人博客网站（下：Hexo部署）——最详细全面解读教程（没有之一） 大致流程 申请github账号 安装Node.js Node.js / npmをインストールする（for Windows）  安装hexo 1npm install hexo-cli -g  建立第一个帖子">
@@ -493,6 +493,29 @@
     
       <div>
         
+  
+    <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+      <div>据说喜欢打赏的人运气都不会太差</div>
+      <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+        <span>赏</span>
+      </button>
+      <div id="QR" style="display: none;">
+        
+          <div id="wechat" style="display: inline-block">
+            <img id="wechat_qr" src="/images/WeChat_pay.jpg" alt="caili-zhang WeChat Pay"/>
+            <p>微信打赏</p>
+          </div>
+        
+        
+          <div id="alipay" style="display: inline-block">
+            <img id="alipay_qr" src="/images/Ali_pay.jpg" alt="caili-zhang Alipay"/>
+            <p>支付宝打赏</p>
+          </div>
+        
+      </div>
+    </div>
+  
+
 
       </div>
     
@@ -534,26 +557,19 @@
         
 
         
-          <div class="social-like">
-            
+        <!-- AddToAny BEGIN -->
+        <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+          <a class="a2a_button_facebook"></a>
+          <a class="a2a_button_twitter a2a_counter"></a>
+          <a class="a2a_button_wechat a2a_counter"></a>
+          <a class="a2a_button_sina_weibo a2a_counter"></a>
+          <a class="a2a_button_douban a2a_counter"></a>
+        </div>
+        <script async src="https://static.addtoany.com/menu/page.js"></script>
+        <!-- AddToAny END -->
 
-            
-              <div class="fb_like">
-                <div class="fb-like" data-layout="button_count" data-share="true"></div>
-              </div>
-            
-          </div>
         
 
-        
-          
-            <span class="post-meta-divider">|</span>
-          
-          <div id="needsharebutton-postbottom">
-            <span class="btn">
-              <i class="fa fa-share-alt" aria-hidden="true"></i>
-            </span>
-          </div>
         
         </div>
       
@@ -847,12 +863,6 @@
     
 
     
-      <div id="needsharebutton-float">
-        <span class="btn">
-          <i class="fa fa-share-alt" aria-hidden="true"></i>
-        </span>
-      </div>
-    
 
   </div>
 
@@ -995,43 +1005,6 @@
   
 
   
-  
-  
-  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
-
-  
-  
-  <script src="/lib/needsharebutton/needsharebutton.js"></script>
-
-  <script>
-    
-      pbOptions = {};
-      
-          pbOptions.iconStyle = "box";
-      
-          pbOptions.boxForm = "horizontal";
-      
-          pbOptions.position = "bottomCenter";
-      
-          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
-      
-      new needShareButton('#needsharebutton-postbottom', pbOptions);
-    
-    
-      flOptions = {};
-      
-          flOptions.iconStyle = "box";
-      
-          flOptions.boxForm = "vertical";
-      
-          flOptions.position = "middleRight";
-      
-          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
-      
-      new needShareButton('#needsharebutton-float', flOptions);
-    
-  </script>
-
   
 
   

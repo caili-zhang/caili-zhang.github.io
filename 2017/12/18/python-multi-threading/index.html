@@ -128,7 +128,7 @@
 <meta property="og:site_name" content="caili blog">
 <meta property="og:description" content="多线程 大神讲解这个youtuber的编程教程超级详细，跟着他一起敲键盘应该是最快的学习方法. 大神自己的教程网站 multiprocessing basic of multiprocessing    get return information from other process">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-19T18:42:00.418Z">
+<meta property="og:updated_time" content="2017-12-20T13:56:36.699Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="理解多线程【学习资料】">
 <meta name="twitter:description" content="多线程 大神讲解这个youtuber的编程教程超级详细，跟着他一起敲键盘应该是最快的学习方法. 大神自己的教程网站 multiprocessing basic of multiprocessing    get return information from other process">
@@ -459,6 +459,29 @@
     
       <div>
         
+  
+    <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+      <div>据说喜欢打赏的人运气都不会太差</div>
+      <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+        <span>赏</span>
+      </button>
+      <div id="QR" style="display: none;">
+        
+          <div id="wechat" style="display: inline-block">
+            <img id="wechat_qr" src="/images/WeChat_pay.jpg" alt="caili-zhang WeChat Pay"/>
+            <p>微信打赏</p>
+          </div>
+        
+        
+          <div id="alipay" style="display: inline-block">
+            <img id="alipay_qr" src="/images/Ali_pay.jpg" alt="caili-zhang Alipay"/>
+            <p>支付宝打赏</p>
+          </div>
+        
+      </div>
+    </div>
+  
+
 
       </div>
     
@@ -502,26 +525,19 @@
         
 
         
-          <div class="social-like">
-            
+        <!-- AddToAny BEGIN -->
+        <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+          <a class="a2a_button_facebook"></a>
+          <a class="a2a_button_twitter a2a_counter"></a>
+          <a class="a2a_button_wechat a2a_counter"></a>
+          <a class="a2a_button_sina_weibo a2a_counter"></a>
+          <a class="a2a_button_douban a2a_counter"></a>
+        </div>
+        <script async src="https://static.addtoany.com/menu/page.js"></script>
+        <!-- AddToAny END -->
 
-            
-              <div class="fb_like">
-                <div class="fb-like" data-layout="button_count" data-share="true"></div>
-              </div>
-            
-          </div>
         
 
-        
-          
-            <span class="post-meta-divider">|</span>
-          
-          <div id="needsharebutton-postbottom">
-            <span class="btn">
-              <i class="fa fa-share-alt" aria-hidden="true"></i>
-            </span>
-          </div>
         
         </div>
       
@@ -826,12 +842,6 @@
     
 
     
-      <div id="needsharebutton-float">
-        <span class="btn">
-          <i class="fa fa-share-alt" aria-hidden="true"></i>
-        </span>
-      </div>
-    
 
   </div>
 
@@ -974,43 +984,6 @@
   
 
   
-  
-  
-  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
-
-  
-  
-  <script src="/lib/needsharebutton/needsharebutton.js"></script>
-
-  <script>
-    
-      pbOptions = {};
-      
-          pbOptions.iconStyle = "box";
-      
-          pbOptions.boxForm = "horizontal";
-      
-          pbOptions.position = "bottomCenter";
-      
-          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
-      
-      new needShareButton('#needsharebutton-postbottom', pbOptions);
-    
-    
-      flOptions = {};
-      
-          flOptions.iconStyle = "box";
-      
-          flOptions.boxForm = "vertical";
-      
-          flOptions.position = "middleRight";
-      
-          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
-      
-      new needShareButton('#needsharebutton-float', flOptions);
-    
-  </script>
-
   
 
   
