@@ -14,6 +14,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
 
 
 
@@ -120,18 +127,18 @@
 
 
 
-<meta name="description" content="代码：Github问题描述文件 faceDetector.py 主要的逻辑，识别人脸并说话 speech_api/jatts.py 谷歌的text2speech api trainingData.yml 人脸照片学习之后的模型数据  主要代码faceDetector.py1234567891011121314151617181920212223242526272829303132333435363">
+<meta name="description" content="代码：Github问题描述文件 faceDetector.py 主要的逻辑，识别人脸并说话 speech_api/jatts.py 谷歌的text2speech api trainingData.yml 人脸照片学习之后的模型数据">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python 遇到的问题">
 <meta property="og:url" content="https://caili-zhang.github.io/2017/12/18/python-face-problem-01/index.html">
 <meta property="og:site_name" content="caili blog">
-<meta property="og:description" content="代码：Github问题描述文件 faceDetector.py 主要的逻辑，识别人脸并说话 speech_api/jatts.py 谷歌的text2speech api trainingData.yml 人脸照片学习之后的模型数据  主要代码faceDetector.py1234567891011121314151617181920212223242526272829303132333435363">
+<meta property="og:description" content="代码：Github问题描述文件 faceDetector.py 主要的逻辑，识别人脸并说话 speech_api/jatts.py 谷歌的text2speech api trainingData.yml 人脸照片学习之后的模型数据">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-20T13:56:38.611Z">
+<meta property="og:updated_time" content="2017-12-21T23:12:19.555Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python 遇到的问题">
-<meta name="twitter:description" content="代码：Github问题描述文件 faceDetector.py 主要的逻辑，识别人脸并说话 speech_api/jatts.py 谷歌的text2speech api trainingData.yml 人脸照片学习之后的模型数据  主要代码faceDetector.py1234567891011121314151617181920212223242526272829303132333435363">
+<meta name="twitter:description" content="代码：Github问题描述文件 faceDetector.py 主要的逻辑，识别人脸并说话 speech_api/jatts.py 谷歌的text2speech api trainingData.yml 人脸照片学习之后的模型数据">
 
 
 
@@ -229,7 +236,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">Keep It Simple & Real</p>
       
   </div>
 
@@ -295,6 +302,16 @@
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-hexo-tips">
+          <a href="/hexo-tips/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            hexo-tips
           </a>
         </li>
       
@@ -439,9 +456,10 @@
         <h2 id="代码：Github"><a href="#代码：Github" class="headerlink" title="代码：Github"></a>代码：<a href="https://github.com/caili-zhang/facial_recognition" target="_blank" rel="noopener">Github</a></h2><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><h3 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h3><ol>
 <li>faceDetector.py 主要的逻辑，识别人脸并说话</li>
 <li>speech_api/jatts.py 谷歌的text2speech api</li>
-<li>trainingData.yml 人脸照片学习之后的模型数据</li>
+<li>trainingData.yml 人脸照片学习之后的模型数据<a id="more"></a>
+<h3 id="主要代码"><a href="#主要代码" class="headerlink" title="主要代码"></a>主要代码</h3></li>
 </ol>
-<h3 id="主要代码"><a href="#主要代码" class="headerlink" title="主要代码"></a>主要代码</h3><figure class="highlight python"><figcaption><span>faceDetector.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">from</span> speech_api <span class="keyword">import</span> jatts</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"> <span class="comment"># 找出画面中人脸位置的模块</span></span><br><span class="line">detector=cv2.CascadeClassifier(<span class="string">'haarcascade_frontalface_default.xml'</span>)</span><br><span class="line"></span><br><span class="line">cap = cv2.VideoCapture(<span class="number">0</span>) <span class="comment"># 启动摄像头</span></span><br><span class="line">cap.set(cv2.CAP_PROP_FPS, <span class="number">60</span>)           <span class="comment"># 设置画面帧数60</span></span><br><span class="line">cap.set(cv2.CAP_PROP_FRAME_WIDTH, <span class="number">1280</span>) <span class="comment"># 设置画面宽度</span></span><br><span class="line">cap.set(cv2.CAP_PROP_FRAME_HEIGHT, <span class="number">720</span>) <span class="comment"># 设置画面高度</span></span><br><span class="line"></span><br><span class="line">recognizer =cv2.face.LBPHFaceRecognizer_create() <span class="comment">#生产识别器</span></span><br><span class="line"></span><br><span class="line">recognizer.read(<span class="string">"trainingData.yml"</span>) <span class="comment"># 读取训练过人脸的数据</span></span><br><span class="line"></span><br><span class="line">id=<span class="number">-1</span></span><br><span class="line">font=cv2.FONT_HERSHEY_SIMPLEX</span><br><span class="line"></span><br><span class="line">flag=<span class="keyword">False</span></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    <span class="comment"># 主要的代码逻辑：while 文不断扫描画面找出人脸与训练数据做比对</span></span><br><span class="line">    <span class="comment"># 如果扫描到的人脸和训练数据相同 =&gt; text2speech api =&gt; 像他问好</span></span><br><span class="line">    ret,img=cap.read()</span><br><span class="line">    gray =cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)</span><br><span class="line">    <span class="comment"># size, likelyhood</span></span><br><span class="line">    faces=detector.detectMultiScale(gray,<span class="number">1.3</span>,<span class="number">5</span>)</span><br><span class="line">    <span class="keyword">for</span> (x,y,w,h) <span class="keyword">in</span> faces:</span><br><span class="line">        <span class="comment"># 在人脸周围画方框的函数</span></span><br><span class="line">        cv2.rectangle(img, (x,y),(x+w,y+h),(<span class="number">255</span>,<span class="number">0</span>,<span class="number">0</span>),<span class="number">2</span>)</span><br><span class="line">        <span class="comment"># 返回侦测到的人脸的ID和近似度conf（数字越大和训练数据越不像）</span></span><br><span class="line">        id,conf =recognizer.predict(gray[y:y+h,x:x+w])</span><br><span class="line">        <span class="keyword">if</span>(conf&gt;<span class="number">90</span>):</span><br><span class="line">            username=<span class="string">"Unknown"</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span>(id==<span class="number">1</span>):</span><br><span class="line">                username=<span class="string">"chou"</span></span><br><span class="line">            <span class="keyword">elif</span>(id==<span class="number">-1</span>):</span><br><span class="line">                username=<span class="string">"Unknown"</span></span><br><span class="line">        <span class="comment"># 如果侦测到人脸 就说 你好 某某，flag保证只说一次</span></span><br><span class="line">        <span class="keyword">if</span>( (username !=<span class="string">"Unknown"</span>) &amp; flag==<span class="keyword">False</span>):</span><br><span class="line">            flag=<span class="keyword">True</span></span><br><span class="line">            jatts.jatts(<span class="string">"你好"</span>+username)</span><br><span class="line">        <span class="comment"># 在人脸上方显示用户名和conf值（近似度）</span></span><br><span class="line">        cv2.putText(img,<span class="string">"User:"</span>+username,(x,y<span class="number">-10</span>),font,<span class="number">1</span>,(<span class="number">0</span>,<span class="number">255</span>,<span class="number">0</span>),<span class="number">3</span>)</span><br><span class="line">        cv2.putText(img, <span class="string">"Conf:"</span> + str(conf), (x, y - <span class="number">50</span>), font, <span class="number">1</span>, (<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>), <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">    cv2.imshow(<span class="string">'img'</span>,img)</span><br><span class="line">    <span class="comment"># 推出按钮=q</span></span><br><span class="line">    <span class="keyword">if</span> cv2.waitKey(<span class="number">1</span>) &amp; <span class="number">0xFF</span>==ord(<span class="string">'q'</span>):</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">cap.release()</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><figcaption><span>faceDetector.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">from</span> speech_api <span class="keyword">import</span> jatts</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"> <span class="comment"># 找出画面中人脸位置的模块</span></span><br><span class="line">detector=cv2.CascadeClassifier(<span class="string">'haarcascade_frontalface_default.xml'</span>)</span><br><span class="line"></span><br><span class="line">cap = cv2.VideoCapture(<span class="number">0</span>) <span class="comment"># 启动摄像头</span></span><br><span class="line">cap.set(cv2.CAP_PROP_FPS, <span class="number">60</span>)           <span class="comment"># 设置画面帧数60</span></span><br><span class="line">cap.set(cv2.CAP_PROP_FRAME_WIDTH, <span class="number">1280</span>) <span class="comment"># 设置画面宽度</span></span><br><span class="line">cap.set(cv2.CAP_PROP_FRAME_HEIGHT, <span class="number">720</span>) <span class="comment"># 设置画面高度</span></span><br><span class="line"></span><br><span class="line">recognizer =cv2.face.LBPHFaceRecognizer_create() <span class="comment">#生产识别器</span></span><br><span class="line"></span><br><span class="line">recognizer.read(<span class="string">"trainingData.yml"</span>) <span class="comment"># 读取训练过人脸的数据</span></span><br><span class="line"></span><br><span class="line">id=<span class="number">-1</span></span><br><span class="line">font=cv2.FONT_HERSHEY_SIMPLEX</span><br><span class="line"></span><br><span class="line">flag=<span class="keyword">False</span></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    <span class="comment"># 主要的代码逻辑：while 文不断扫描画面找出人脸与训练数据做比对</span></span><br><span class="line">    <span class="comment"># 如果扫描到的人脸和训练数据相同 =&gt; text2speech api =&gt; 像他问好</span></span><br><span class="line">    ret,img=cap.read()</span><br><span class="line">    gray =cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)</span><br><span class="line">    <span class="comment"># size, likelyhood</span></span><br><span class="line">    faces=detector.detectMultiScale(gray,<span class="number">1.3</span>,<span class="number">5</span>)</span><br><span class="line">    <span class="keyword">for</span> (x,y,w,h) <span class="keyword">in</span> faces:</span><br><span class="line">        <span class="comment"># 在人脸周围画方框的函数</span></span><br><span class="line">        cv2.rectangle(img, (x,y),(x+w,y+h),(<span class="number">255</span>,<span class="number">0</span>,<span class="number">0</span>),<span class="number">2</span>)</span><br><span class="line">        <span class="comment"># 返回侦测到的人脸的ID和近似度conf（数字越大和训练数据越不像）</span></span><br><span class="line">        id,conf =recognizer.predict(gray[y:y+h,x:x+w])</span><br><span class="line">        <span class="keyword">if</span>(conf&gt;<span class="number">90</span>):</span><br><span class="line">            username=<span class="string">"Unknown"</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span>(id==<span class="number">1</span>):</span><br><span class="line">                username=<span class="string">"chou"</span></span><br><span class="line">            <span class="keyword">elif</span>(id==<span class="number">-1</span>):</span><br><span class="line">                username=<span class="string">"Unknown"</span></span><br><span class="line">        <span class="comment"># 如果侦测到人脸 就说 你好 某某，flag保证只说一次</span></span><br><span class="line">        <span class="keyword">if</span>( (username !=<span class="string">"Unknown"</span>) &amp; flag==<span class="keyword">False</span>):</span><br><span class="line">            flag=<span class="keyword">True</span></span><br><span class="line">            jatts.jatts(<span class="string">"你好"</span>+username)</span><br><span class="line">        <span class="comment"># 在人脸上方显示用户名和conf值（近似度）</span></span><br><span class="line">        cv2.putText(img,<span class="string">"User:"</span>+username,(x,y<span class="number">-10</span>),font,<span class="number">1</span>,(<span class="number">0</span>,<span class="number">255</span>,<span class="number">0</span>),<span class="number">3</span>)</span><br><span class="line">        cv2.putText(img, <span class="string">"Conf:"</span> + str(conf), (x, y - <span class="number">50</span>), font, <span class="number">1</span>, (<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>), <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">    cv2.imshow(<span class="string">'img'</span>,img)</span><br><span class="line">    <span class="comment"># 推出按钮=q</span></span><br><span class="line">    <span class="keyword">if</span> cv2.waitKey(<span class="number">1</span>) &amp; <span class="number">0xFF</span>==ord(<span class="string">'q'</span>):</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">cap.release()</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
 <h3 id="问题1-卡顿现象"><a href="#问题1-卡顿现象" class="headerlink" title="问题1 卡顿现象"></a>问题1 卡顿现象</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>:</span><br><span class="line">  <span class="comment"># 图像处理code</span></span><br><span class="line">  <span class="keyword">if</span>( (username !=<span class="string">"Unknown"</span>) &amp; flag==<span class="keyword">False</span>):</span><br><span class="line">      flag=<span class="keyword">True</span></span><br><span class="line">      jatts.jatts(<span class="string">"你好"</span>+username)</span><br></pre></td></tr></table></figure>
 <p>在while的频率大概10次每秒，在while之中调用api导致突然画面会卡住，有没有让图像处理和声音处理分开的方法。<br>比如图像的频率10次每秒，声音每秒确认一次是否问好。</p>
 <h3 id="问题2-识别精度不够"><a href="#问题2-识别精度不够" class="headerlink" title="问题2 识别精度不够"></a>问题2 识别精度不够</h3><p>现在的逻辑是第一次做出username的判断，立刻通过api说话。<br>但是username的预测现在不稳定，大概十次里面能预测对名字6次，理想状态是三秒左右按多数决给username赋值=&gt;问好。<br>比如判断成用户1=60次，用户2=40次，所以应该识别成用户1</p>
@@ -451,7 +469,12 @@
     
     
     
+    <div>
+      
+        
 
+      
+    </div>
     
 
     
@@ -476,6 +499,7 @@
             <p>支付宝打赏</p>
           </div>
         
+        
       </div>
     </div>
   
@@ -488,15 +512,17 @@
     
     <div>
 	  
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- blog-ad -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:320px;height:100px"
-     data-ad-client="ca-pub-3435046434963372"
-     data-ad-slot="9417880209"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+  <script type="text/javascript">
+      google_ad_client = "ca-pub-3435046434963372";
+      google_ad_slot = "9417880209";
+      google_ad_width = 320;
+      google_ad_height = 100;
+  </script>
+  <!-- blog-ad -->
+  <script type="text/javascript"
+  src="//pagead2.googlesyndication.com/pagead/show_ads.js">
+  </script>
+
 
 
     </div>
@@ -508,7 +534,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag"># python</a>
+            <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i>python</a>
           
         </div>
       
@@ -541,8 +567,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/17/python-face-01/" rel="next" title="用Python写一个简单的脸部识别项目">
-                <i class="fa fa-chevron-left"></i> 用Python写一个简单的脸部识别项目
+              <a href="/2017/12/17/python-face-01/" rel="next" title="用Python写一个简单的脸部识别项目(1)">
+                <i class="fa fa-chevron-left"></i> 用Python写一个简单的脸部识别项目(1)
               </a>
             
           </div>
@@ -567,11 +593,15 @@
           <h3 class="article-title" style="font-size: 20px;">相关文章</h3>
           <ul class="related-posts">
           
+              <li class="related-posts-item"><a href="/2017/12/21/python-observer-pattern/">python observer pattern【学习资料】</a></li>
+          
+              <li class="related-posts-item"><a href="/2017/12/21/python-face-02/">用Python写一个简单的脸部识别项目(2)</a></li>
+          
               <li class="related-posts-item"><a href="/2017/12/20/python-crawler-tutorial/">python爬虫【学习资料】</a></li>
           
               <li class="related-posts-item"><a href="/2017/12/18/python-multi-threading/">理解多线程【学习资料】</a></li>
           
-              <li class="related-posts-item"><a href="/2017/12/17/python-face-01/">用Python写一个简单的脸部识别项目</a></li>
+              <li class="related-posts-item"><a href="/2017/12/17/python-face-01/">用Python写一个简单的脸部识别项目(1)</a></li>
           
           </ul>
         
@@ -662,7 +692,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

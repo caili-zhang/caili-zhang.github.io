@@ -14,6 +14,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
 
 
 
@@ -120,18 +127,18 @@
 
 
 
-<meta name="description" content="入门级简书上面有好多教程一步一步教你搭建看这个下面这个帖子就足够了。 使用Hexo在GitHub Pages上搭建部署免费的个人博客网站（下：Hexo部署）——最详细全面解读教程（没有之一） 大致流程 申请github账号 安装Node.js Node.js / npmをインストールする（for Windows）  安装hexo 1npm install hexo-cli -g  建立第一个帖子">
+<meta name="description" content="入门级简书上面有好多教程一步一步教你搭建看这个下面这个帖子就足够了。 使用Hexo在GitHub Pages上搭建部署免费的个人博客网站（下：Hexo部署）——最详细全面解读教程（没有之一） 大致流程 申请github账号 安装Node.js Node.js / npmをインストールする（for Windows）  安装hexo1npm install hexo-cli -g">
 <meta name="keywords" content="hexo,next">
 <meta property="og:type" content="article">
 <meta property="og:title" content="零基础学习在github上搭建hexo个人博客">
 <meta property="og:url" content="https://caili-zhang.github.io/2017/12/18/how-to-build-hexo-next-blog/index.html">
 <meta property="og:site_name" content="caili blog">
-<meta property="og:description" content="入门级简书上面有好多教程一步一步教你搭建看这个下面这个帖子就足够了。 使用Hexo在GitHub Pages上搭建部署免费的个人博客网站（下：Hexo部署）——最详细全面解读教程（没有之一） 大致流程 申请github账号 安装Node.js Node.js / npmをインストールする（for Windows）  安装hexo 1npm install hexo-cli -g  建立第一个帖子">
+<meta property="og:description" content="入门级简书上面有好多教程一步一步教你搭建看这个下面这个帖子就足够了。 使用Hexo在GitHub Pages上搭建部署免费的个人博客网站（下：Hexo部署）——最详细全面解读教程（没有之一） 大致流程 申请github账号 安装Node.js Node.js / npmをインストールする（for Windows）  安装hexo1npm install hexo-cli -g">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-20T13:57:22.070Z">
+<meta property="og:updated_time" content="2017-12-21T23:12:02.587Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="零基础学习在github上搭建hexo个人博客">
-<meta name="twitter:description" content="入门级简书上面有好多教程一步一步教你搭建看这个下面这个帖子就足够了。 使用Hexo在GitHub Pages上搭建部署免费的个人博客网站（下：Hexo部署）——最详细全面解读教程（没有之一） 大致流程 申请github账号 安装Node.js Node.js / npmをインストールする（for Windows）  安装hexo 1npm install hexo-cli -g  建立第一个帖子">
+<meta name="twitter:description" content="入门级简书上面有好多教程一步一步教你搭建看这个下面这个帖子就足够了。 使用Hexo在GitHub Pages上搭建部署免费的个人博客网站（下：Hexo部署）——最详细全面解读教程（没有之一） 大致流程 申请github账号 安装Node.js Node.js / npmをインストールする（for Windows）  安装hexo1npm install hexo-cli -g">
 
 
 
@@ -229,7 +236,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">Keep It Simple & Real</p>
       
   </div>
 
@@ -295,6 +302,16 @@
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-hexo-tips">
+          <a href="/hexo-tips/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            hexo-tips
           </a>
         </li>
       
@@ -454,9 +471,11 @@
 <li><p>安装Node.js</p>
 <p><a href="https://qiita.com/taiponrock/items/9001ae194571feb63a5e" target="_blank" rel="noopener">Node.js / npmをインストールする（for Windows）</a></p>
 </li>
-<li><p>安装hexo</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+<li>安装hexo<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
 </li>
+</ol>
+<a id="more"></a>
+<ol>
 <li><p>建立第一个帖子</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo init myblog</span><br><span class="line">hexo new <span class="string">"first-post"</span></span><br><span class="line">hexo generate</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
 </li>
@@ -487,7 +506,12 @@
     
     
     
+    <div>
+      
+        
 
+      
+    </div>
     
 
     
@@ -512,6 +536,7 @@
             <p>支付宝打赏</p>
           </div>
         
+        
       </div>
     </div>
   
@@ -524,15 +549,17 @@
     
     <div>
 	  
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- blog-ad -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:320px;height:100px"
-     data-ad-client="ca-pub-3435046434963372"
-     data-ad-slot="9417880209"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+  <script type="text/javascript">
+      google_ad_client = "ca-pub-3435046434963372";
+      google_ad_slot = "9417880209";
+      google_ad_width = 320;
+      google_ad_height = 100;
+  </script>
+  <!-- blog-ad -->
+  <script type="text/javascript"
+  src="//pagead2.googlesyndication.com/pagead/show_ads.js">
+  </script>
+
 
 
     </div>
@@ -544,9 +571,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"># hexo</a>
+            <a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i>hexo</a>
           
-            <a href="/tags/next/" rel="tag"># next</a>
+            <a href="/tags/next/" rel="tag"><i class="fa fa-tag"></i>next</a>
           
         </div>
       
@@ -689,7 +716,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

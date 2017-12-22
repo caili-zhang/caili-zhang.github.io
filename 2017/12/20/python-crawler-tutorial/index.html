@@ -14,6 +14,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
 
 
 
@@ -120,18 +127,18 @@
 
 
 
-<meta name="description" content="爬虫干嘛用有时候看别人写的网站很不错，想整个下载下来学习学习，但是不可能每个页面都点过去右键保存吧，这就需要爬虫来自动下载网页。 谷歌搜索也是基于爬虫自动保存了大量网页在数据库中才能索引的到。 我想写个脚本能从视频网站上自动下载视频。 crawler VS. scraping scraping就是将目标网站的html扒下来 crawler 和scraping的不同之处，爬虫会从一个根网址，自动爬到">
+<meta name="description" content="爬虫干嘛用有时候看别人写的网站很不错，想整个下载下来学习学习，但是不可能每个页面都点过去右键保存吧，这就需要爬虫来自动下载网页。 谷歌搜索也是基于爬虫自动保存了大量网页在数据库中才能索引的到。 我想写个脚本能从视频网站上自动下载视频。">
 <meta name="keywords" content="python,crawler,scraping,scrapy,selenium">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python爬虫【学习资料】">
 <meta property="og:url" content="https://caili-zhang.github.io/2017/12/20/python-crawler-tutorial/index.html">
 <meta property="og:site_name" content="caili blog">
-<meta property="og:description" content="爬虫干嘛用有时候看别人写的网站很不错，想整个下载下来学习学习，但是不可能每个页面都点过去右键保存吧，这就需要爬虫来自动下载网页。 谷歌搜索也是基于爬虫自动保存了大量网页在数据库中才能索引的到。 我想写个脚本能从视频网站上自动下载视频。 crawler VS. scraping scraping就是将目标网站的html扒下来 crawler 和scraping的不同之处，爬虫会从一个根网址，自动爬到">
+<meta property="og:description" content="爬虫干嘛用有时候看别人写的网站很不错，想整个下载下来学习学习，但是不可能每个页面都点过去右键保存吧，这就需要爬虫来自动下载网页。 谷歌搜索也是基于爬虫自动保存了大量网页在数据库中才能索引的到。 我想写个脚本能从视频网站上自动下载视频。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-20T03:53:57.885Z">
+<meta property="og:updated_time" content="2017-12-21T23:12:38.118Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python爬虫【学习资料】">
-<meta name="twitter:description" content="爬虫干嘛用有时候看别人写的网站很不错，想整个下载下来学习学习，但是不可能每个页面都点过去右键保存吧，这就需要爬虫来自动下载网页。 谷歌搜索也是基于爬虫自动保存了大量网页在数据库中才能索引的到。 我想写个脚本能从视频网站上自动下载视频。 crawler VS. scraping scraping就是将目标网站的html扒下来 crawler 和scraping的不同之处，爬虫会从一个根网址，自动爬到">
+<meta name="twitter:description" content="爬虫干嘛用有时候看别人写的网站很不错，想整个下载下来学习学习，但是不可能每个页面都点过去右键保存吧，这就需要爬虫来自动下载网页。 谷歌搜索也是基于爬虫自动保存了大量网页在数据库中才能索引的到。 我想写个脚本能从视频网站上自动下载视频。">
 
 
 
@@ -229,7 +236,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">Keep It Simple & Real</p>
       
   </div>
 
@@ -295,6 +302,16 @@
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-hexo-tips">
+          <a href="/hexo-tips/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            hexo-tips
           </a>
         </li>
       
@@ -438,7 +455,7 @@
       
         <h2 id="爬虫干嘛用"><a href="#爬虫干嘛用" class="headerlink" title="爬虫干嘛用"></a>爬虫干嘛用</h2><p>有时候看别人写的网站很不错，想整个下载下来学习学习，但是不可能每个页面都点过去右键保存吧，这就需要爬虫来自动下载网页。</p>
 <p>谷歌搜索也是基于爬虫自动保存了大量网页在数据库中才能索引的到。</p>
-<p>我想写个脚本能从视频网站上自动下载视频。</p>
+<p>我想写个脚本能从视频网站上自动下载视频。<br><a id="more"></a></p>
 <h2 id="crawler-VS-scraping"><a href="#crawler-VS-scraping" class="headerlink" title="crawler VS. scraping"></a>crawler VS. scraping</h2><ul>
 <li>scraping就是将目标网站的html扒下来</li>
 <li>crawler 和scraping的不同之处，爬虫会从一个根网址，自动爬到这个页面所连接的网页，也就是说给爬虫一个门户网站网址，可以把整个网站成千上万的网页全部扒下来</li>
@@ -483,7 +500,12 @@
     
     
     
+    <div>
+      
+        
 
+      
+    </div>
     
 
     
@@ -508,6 +530,7 @@
             <p>支付宝打赏</p>
           </div>
         
+        
       </div>
     </div>
   
@@ -520,15 +543,17 @@
     
     <div>
 	  
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- blog-ad -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:320px;height:100px"
-     data-ad-client="ca-pub-3435046434963372"
-     data-ad-slot="9417880209"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+  <script type="text/javascript">
+      google_ad_client = "ca-pub-3435046434963372";
+      google_ad_slot = "9417880209";
+      google_ad_width = 320;
+      google_ad_height = 100;
+  </script>
+  <!-- blog-ad -->
+  <script type="text/javascript"
+  src="//pagead2.googlesyndication.com/pagead/show_ads.js">
+  </script>
+
 
 
     </div>
@@ -540,15 +565,15 @@
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag"># python</a>
+            <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i>python</a>
           
-            <a href="/tags/crawler/" rel="tag"># crawler</a>
+            <a href="/tags/crawler/" rel="tag"><i class="fa fa-tag"></i>crawler</a>
           
-            <a href="/tags/scraping/" rel="tag"># scraping</a>
+            <a href="/tags/scraping/" rel="tag"><i class="fa fa-tag"></i>scraping</a>
           
-            <a href="/tags/scrapy/" rel="tag"># scrapy</a>
+            <a href="/tags/scrapy/" rel="tag"><i class="fa fa-tag"></i>scrapy</a>
           
-            <a href="/tags/selenium/" rel="tag"># selenium</a>
+            <a href="/tags/selenium/" rel="tag"><i class="fa fa-tag"></i>selenium</a>
           
         </div>
       
@@ -591,6 +616,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/12/21/python-face-02/" rel="prev" title="用Python写一个简单的脸部识别项目(2)">
+                用Python写一个简单的脸部识别项目(2) <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -603,11 +632,15 @@
           <h3 class="article-title" style="font-size: 20px;">相关文章</h3>
           <ul class="related-posts">
           
+              <li class="related-posts-item"><a href="/2017/12/21/python-observer-pattern/">python observer pattern【学习资料】</a></li>
+          
+              <li class="related-posts-item"><a href="/2017/12/21/python-face-02/">用Python写一个简单的脸部识别项目(2)</a></li>
+          
               <li class="related-posts-item"><a href="/2017/12/18/python-multi-threading/">理解多线程【学习资料】</a></li>
           
               <li class="related-posts-item"><a href="/2017/12/18/python-face-problem-01/">python 遇到的问题</a></li>
           
-              <li class="related-posts-item"><a href="/2017/12/17/python-face-01/">用Python写一个简单的脸部识别项目</a></li>
+              <li class="related-posts-item"><a href="/2017/12/17/python-face-01/">用Python写一个简单的脸部识别项目(1)</a></li>
           
           </ul>
         
@@ -698,7 +731,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

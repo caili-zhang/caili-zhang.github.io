@@ -14,6 +14,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
 
 
 
@@ -120,18 +127,18 @@
 
 
 
-<meta name="description" content="参考资料 主要代码参考了这个系列的视频，但是这个视频是基于python2的，opencv也不是最新版本，以下代码做了python3更新。 beta版完整的代码在我的Github上 目标 从摄像头切取20张同一人的脸部照片 对20张照片进行学习，生产识别器Classifier 使用识别器，识别出人脸取得相应的人名 按照识别出的人名，自动作出语音回应“你好 XX ”  操作环境 windows10 ，">
+<meta name="description" content="参考资料 主要代码参考了这个系列的视频，但是这个视频是基于python2的，opencv也不是最新版本，以下代码做了python3更新。 beta版完整的代码在我的Github上 目标 从摄像头切取20张同一人的脸部照片 对20张照片进行学习，生产识别器Classifier 使用识别器，识别出人脸取得相应的人名 按照识别出的人名，自动作出语音回应“你好 XX ”">
 <meta name="keywords" content="python,machin learning">
 <meta property="og:type" content="article">
-<meta property="og:title" content="用Python写一个简单的脸部识别项目">
+<meta property="og:title" content="用Python写一个简单的脸部识别项目(1)">
 <meta property="og:url" content="https://caili-zhang.github.io/2017/12/17/python-face-01/index.html">
 <meta property="og:site_name" content="caili blog">
-<meta property="og:description" content="参考资料 主要代码参考了这个系列的视频，但是这个视频是基于python2的，opencv也不是最新版本，以下代码做了python3更新。 beta版完整的代码在我的Github上 目标 从摄像头切取20张同一人的脸部照片 对20张照片进行学习，生产识别器Classifier 使用识别器，识别出人脸取得相应的人名 按照识别出的人名，自动作出语音回应“你好 XX ”  操作环境 windows10 ，">
+<meta property="og:description" content="参考资料 主要代码参考了这个系列的视频，但是这个视频是基于python2的，opencv也不是最新版本，以下代码做了python3更新。 beta版完整的代码在我的Github上 目标 从摄像头切取20张同一人的脸部照片 对20张照片进行学习，生产识别器Classifier 使用识别器，识别出人脸取得相应的人名 按照识别出的人名，自动作出语音回应“你好 XX ”">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-20T13:57:39.734Z">
+<meta property="og:updated_time" content="2017-12-21T23:17:07.980Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="用Python写一个简单的脸部识别项目">
-<meta name="twitter:description" content="参考资料 主要代码参考了这个系列的视频，但是这个视频是基于python2的，opencv也不是最新版本，以下代码做了python3更新。 beta版完整的代码在我的Github上 目标 从摄像头切取20张同一人的脸部照片 对20张照片进行学习，生产识别器Classifier 使用识别器，识别出人脸取得相应的人名 按照识别出的人名，自动作出语音回应“你好 XX ”  操作环境 windows10 ，">
+<meta name="twitter:title" content="用Python写一个简单的脸部识别项目(1)">
+<meta name="twitter:description" content="参考资料 主要代码参考了这个系列的视频，但是这个视频是基于python2的，opencv也不是最新版本，以下代码做了python3更新。 beta版完整的代码在我的Github上 目标 从摄像头切取20张同一人的脸部照片 对20张照片进行学习，生产识别器Classifier 使用识别器，识别出人脸取得相应的人名 按照识别出的人名，自动作出语音回应“你好 XX ”">
 
 
 
@@ -167,7 +174,7 @@
 
 
 
-  <title>用Python写一个简单的脸部识别项目 | caili blog</title>
+  <title>用Python写一个简单的脸部识别项目(1) | caili blog</title>
   
 <script>
   window.fbAsyncInit = function() {
@@ -229,7 +236,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">Keep It Simple & Real</p>
       
   </div>
 
@@ -298,6 +305,16 @@
           </a>
         </li>
       
+        
+        <li class="menu-item menu-item-hexo-tips">
+          <a href="/hexo-tips/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            hexo-tips
+          </a>
+        </li>
+      
 
       
     </ul>
@@ -348,7 +365,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">用Python写一个简单的脸部识别项目</h1>
+          <h1 class="post-title" itemprop="name headline">用Python写一个简单的脸部识别项目(1)</h1>
         
 
         <div class="post-meta">
@@ -443,9 +460,8 @@
 <li>从摄像头切取20张同一人的脸部照片</li>
 <li>对20张照片进行学习，生产识别器Classifier</li>
 <li>使用识别器，识别出人脸取得相应的人名</li>
-<li>按照识别出的人名，自动作出语音回应“你好 XX ”</li>
-</ul>
-<h2 id="操作环境"><a href="#操作环境" class="headerlink" title="操作环境"></a>操作环境</h2><ul>
+<li>按照识别出的人名，自动作出语音回应“你好 XX ”<a id="more"></a>
+<h2 id="操作环境"><a href="#操作环境" class="headerlink" title="操作环境"></a>操作环境</h2></li>
 <li>windows10 ，（Linux 应该也可以，没试过）</li>
 <li>python3.5.0</li>
 <li>opencv3.3.1</li>
@@ -466,7 +482,12 @@
     
     
     
+    <div>
+      
+        
 
+      
+    </div>
     
 
     
@@ -491,6 +512,7 @@
             <p>支付宝打赏</p>
           </div>
         
+        
       </div>
     </div>
   
@@ -503,15 +525,17 @@
     
     <div>
 	  
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- blog-ad -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:320px;height:100px"
-     data-ad-client="ca-pub-3435046434963372"
-     data-ad-slot="9417880209"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+  <script type="text/javascript">
+      google_ad_client = "ca-pub-3435046434963372";
+      google_ad_slot = "9417880209";
+      google_ad_width = 320;
+      google_ad_height = 100;
+  </script>
+  <!-- blog-ad -->
+  <script type="text/javascript"
+  src="//pagead2.googlesyndication.com/pagead/show_ads.js">
+  </script>
+
 
 
     </div>
@@ -523,9 +547,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag"># python</a>
+            <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i>python</a>
           
-            <a href="/tags/machin-learning/" rel="tag"># machin learning</a>
+            <a href="/tags/machin-learning/" rel="tag"><i class="fa fa-tag"></i>machin learning</a>
           
         </div>
       
@@ -579,6 +603,10 @@
         
           <h3 class="article-title" style="font-size: 20px;">相关文章</h3>
           <ul class="related-posts">
+          
+              <li class="related-posts-item"><a href="/2017/12/21/python-observer-pattern/">python observer pattern【学习资料】</a></li>
+          
+              <li class="related-posts-item"><a href="/2017/12/21/python-face-02/">用Python写一个简单的脸部识别项目(2)</a></li>
           
               <li class="related-posts-item"><a href="/2017/12/20/python-crawler-tutorial/">python爬虫【学习资料】</a></li>
           
@@ -675,7 +703,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -951,7 +979,7 @@
         var disqus_config = function () {
           this.page.url = 'https://caili-zhang.github.io/2017/12/17/python-face-01/';
           this.page.identifier = '2017/12/17/python-face-01/';
-          this.page.title = '用Python写一个简单的脸部识别项目';
+          this.page.title = '用Python写一个简单的脸部识别项目(1)';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://caili.disqus.com/embed.js';
