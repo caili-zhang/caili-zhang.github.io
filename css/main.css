@@ -1088,7 +1088,7 @@ pre .javascript .function {
   display: block;
 }
 .header {
-  background: url("https://s1.ax1x.com/2017/12/22/jlxjf.jpg");
+  background: transparent;
 }
 .header-inner {
   position: relative;
@@ -1133,8 +1133,8 @@ pre .javascript .function {
 }
 .site-subtitle {
   margin-top: 10px;
-  font-size: 13px;
-  color: #999;
+  font-size: 20px;
+  color: #222;
 }
 .use-motion .brand {
   opacity: 0;
@@ -2014,7 +2014,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #98e43b;
+  background: #2d3cad;
 }
 .links-of-blogroll {
   font-size: 13px;
