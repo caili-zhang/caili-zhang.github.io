@@ -579,6 +579,17 @@
 
                 
                 
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/programming/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
               
             </span>
           
@@ -623,9 +634,13 @@
         
           <h2 id="实现多线程"><a href="#实现多线程" class="headerlink" title="实现多线程"></a>实现多线程</h2><h3 id="为什么需要多线程"><a href="#为什么需要多线程" class="headerlink" title="为什么需要多线程"></a>为什么需要多线程</h3><p>摄像头在不停的扫描和计算图像的相似度占据很大的计算量，同时要处理谷歌的speech2text API会造成卡顿的现象。</p>
 <p>摄像头和声音应该分开成两个线程。</p>
-<h2 id="python-的库"><a href="#python-的库" class="headerlink" title="python 的库"></a>python 的库</h2><ul>
-<li>multithreading</li>
-</ul>
+<p>这篇介绍如何用谷歌语音API</p>
+<h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><ul>
+<li>生成实例时自动生成一个thread</li>
+<li>每隔t秒调用说话的函数。<h2 id="python-的库"><a href="#python-的库" class="headerlink" title="python 的库"></a>python 的库</h2></li>
+<li>threading</li>
+<li>gTTS 调用谷歌api，把text转化成MP3文件</li>
+<li>pagame 调用mp3 播放功能
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/12/21/python-face-02/#more" rel="contents">
@@ -1609,7 +1624,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1620,7 +1635,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
