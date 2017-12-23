@@ -113,7 +113,7 @@
 
 
 
-  <meta name="keywords" content="python," />
+  <meta name="keywords" content="python,machine learning,google speech api," />
 
 
 
@@ -127,18 +127,18 @@
 
 
 
-<meta name="description" content="代码：Github问题描述文件 faceDetector.py 主要的逻辑，识别人脸并说话 speech_api/jatts.py 谷歌的text2speech api trainingData.yml 人脸照片学习之后的模型数据">
-<meta name="keywords" content="python">
+<meta name="description" content="参考资料 主要代码参考了这个系列的视频，但是这个视频是基于python2的，opencv也不是最新版本，以下代码做了python3更新。并且添加了谷歌语音api的连接。 beta版完整的代码在我的Github上 目标 识别出人脸 按识别出的人名问好  操作环境 windows10 ，（Linux 应该也可以，没试过） python3.5.0 python 主要用到的库 opencv3.3.1 图像">
+<meta name="keywords" content="python,machine learning,google speech api">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python 遇到的问题">
-<meta property="og:url" content="https://caili-zhang.github.io/2017/12/18/python-face-problem-01/index.html">
+<meta property="og:title" content="用Python写一个简单的脸部识别项目|汇总">
+<meta property="og:url" content="https://caili-zhang.github.io/2017/12/24/python-face-all/index.html">
 <meta property="og:site_name" content="caili blog">
-<meta property="og:description" content="代码：Github问题描述文件 faceDetector.py 主要的逻辑，识别人脸并说话 speech_api/jatts.py 谷歌的text2speech api trainingData.yml 人脸照片学习之后的模型数据">
+<meta property="og:description" content="参考资料 主要代码参考了这个系列的视频，但是这个视频是基于python2的，opencv也不是最新版本，以下代码做了python3更新。并且添加了谷歌语音api的连接。 beta版完整的代码在我的Github上 目标 识别出人脸 按识别出的人名问好  操作环境 windows10 ，（Linux 应该也可以，没试过） python3.5.0 python 主要用到的库 opencv3.3.1 图像">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-21T23:12:19.555Z">
+<meta property="og:updated_time" content="2017-12-23T20:57:09.611Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python 遇到的问题">
-<meta name="twitter:description" content="代码：Github问题描述文件 faceDetector.py 主要的逻辑，识别人脸并说话 speech_api/jatts.py 谷歌的text2speech api trainingData.yml 人脸照片学习之后的模型数据">
+<meta name="twitter:title" content="用Python写一个简单的脸部识别项目|汇总">
+<meta name="twitter:description" content="参考资料 主要代码参考了这个系列的视频，但是这个视频是基于python2的，opencv也不是最新版本，以下代码做了python3更新。并且添加了谷歌语音api的连接。 beta版完整的代码在我的Github上 目标 识别出人脸 按识别出的人名问好  操作环境 windows10 ，（Linux 应该也可以，没试过） python3.5.0 python 主要用到的库 opencv3.3.1 图像">
 
 
 
@@ -168,13 +168,13 @@
 
 
 
-  <link rel="canonical" href="https://caili-zhang.github.io/2017/12/18/python-face-problem-01/"/>
+  <link rel="canonical" href="https://caili-zhang.github.io/2017/12/24/python-face-all/"/>
 
 
 
 
 
-  <title>python 遇到的问题 | caili blog</title>
+  <title>用Python写一个简单的脸部识别项目|汇总 | caili blog</title>
   
 <script>
   window.fbAsyncInit = function() {
@@ -348,7 +348,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://caili-zhang.github.io/2017/12/18/python-face-problem-01/">
+    <link itemprop="mainEntityOfPage" href="https://caili-zhang.github.io/2017/12/24/python-face-all/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="caili-zhang">
@@ -365,7 +365,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">python 遇到的问题</h1>
+          <h1 class="post-title" itemprop="name headline">用Python写一个简单的脸部识别项目|汇总</h1>
         
 
         <div class="post-meta">
@@ -377,8 +377,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-18T06:37:29+09:00">
-                2017-12-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-24T05:27:00+09:00">
+                2017-12-24
               </time>
             
 
@@ -418,9 +418,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/12/18/python-face-problem-01/#comments" itemprop="discussionUrl">
+                <a href="/2017/12/24/python-face-all/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/12/18/python-face-problem-01/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/12/24/python-face-all/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -453,16 +453,29 @@
       
 
       
-        <h2 id="代码：Github"><a href="#代码：Github" class="headerlink" title="代码：Github"></a>代码：<a href="https://github.com/caili-zhang/facial_recognition" target="_blank" rel="noopener">Github</a></h2><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><h3 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h3><ol>
-<li>faceDetector.py 主要的逻辑，识别人脸并说话</li>
-<li>speech_api/jatts.py 谷歌的text2speech api</li>
-<li>trainingData.yml 人脸照片学习之后的模型数据<a id="more"></a>
-<h3 id="主要代码"><a href="#主要代码" class="headerlink" title="主要代码"></a>主要代码</h3></li>
+        <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><div class="video-container"><iframe src="//www.youtube.com/embed/4W5M-YaJtIA" frameborder="0" allowfullscreen></iframe></div>
+<p>主要代码参考了这个系列的视频，但是这个视频是基于python2的，opencv也不是最新版本，以下代码做了python3更新。<br>并且添加了谷歌语音api的连接。</p>
+<p>beta版完整的代码在<a href="https://github.com/caili-zhang/facial_recognition" target="_blank" rel="noopener">我的Github上</a></p>
+<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ol>
+<li>识别出人脸</li>
+<li>按识别出的人名问好</li>
 </ol>
-<figure class="highlight python"><figcaption><span>faceDetector.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">from</span> speech_api <span class="keyword">import</span> jatts</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"> <span class="comment"># 找出画面中人脸位置的模块</span></span><br><span class="line">detector=cv2.CascadeClassifier(<span class="string">'haarcascade_frontalface_default.xml'</span>)</span><br><span class="line"></span><br><span class="line">cap = cv2.VideoCapture(<span class="number">0</span>) <span class="comment"># 启动摄像头</span></span><br><span class="line">cap.set(cv2.CAP_PROP_FPS, <span class="number">60</span>)           <span class="comment"># 设置画面帧数60</span></span><br><span class="line">cap.set(cv2.CAP_PROP_FRAME_WIDTH, <span class="number">1280</span>) <span class="comment"># 设置画面宽度</span></span><br><span class="line">cap.set(cv2.CAP_PROP_FRAME_HEIGHT, <span class="number">720</span>) <span class="comment"># 设置画面高度</span></span><br><span class="line"></span><br><span class="line">recognizer =cv2.face.LBPHFaceRecognizer_create() <span class="comment">#生产识别器</span></span><br><span class="line"></span><br><span class="line">recognizer.read(<span class="string">"trainingData.yml"</span>) <span class="comment"># 读取训练过人脸的数据</span></span><br><span class="line"></span><br><span class="line">id=<span class="number">-1</span></span><br><span class="line">font=cv2.FONT_HERSHEY_SIMPLEX</span><br><span class="line"></span><br><span class="line">flag=<span class="keyword">False</span></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    <span class="comment"># 主要的代码逻辑：while 文不断扫描画面找出人脸与训练数据做比对</span></span><br><span class="line">    <span class="comment"># 如果扫描到的人脸和训练数据相同 =&gt; text2speech api =&gt; 像他问好</span></span><br><span class="line">    ret,img=cap.read()</span><br><span class="line">    gray =cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)</span><br><span class="line">    <span class="comment"># size, likelyhood</span></span><br><span class="line">    faces=detector.detectMultiScale(gray,<span class="number">1.3</span>,<span class="number">5</span>)</span><br><span class="line">    <span class="keyword">for</span> (x,y,w,h) <span class="keyword">in</span> faces:</span><br><span class="line">        <span class="comment"># 在人脸周围画方框的函数</span></span><br><span class="line">        cv2.rectangle(img, (x,y),(x+w,y+h),(<span class="number">255</span>,<span class="number">0</span>,<span class="number">0</span>),<span class="number">2</span>)</span><br><span class="line">        <span class="comment"># 返回侦测到的人脸的ID和近似度conf（数字越大和训练数据越不像）</span></span><br><span class="line">        id,conf =recognizer.predict(gray[y:y+h,x:x+w])</span><br><span class="line">        <span class="keyword">if</span>(conf&gt;<span class="number">90</span>):</span><br><span class="line">            username=<span class="string">"Unknown"</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span>(id==<span class="number">1</span>):</span><br><span class="line">                username=<span class="string">"chou"</span></span><br><span class="line">            <span class="keyword">elif</span>(id==<span class="number">-1</span>):</span><br><span class="line">                username=<span class="string">"Unknown"</span></span><br><span class="line">        <span class="comment"># 如果侦测到人脸 就说 你好 某某，flag保证只说一次</span></span><br><span class="line">        <span class="keyword">if</span>( (username !=<span class="string">"Unknown"</span>) &amp; flag==<span class="keyword">False</span>):</span><br><span class="line">            flag=<span class="keyword">True</span></span><br><span class="line">            jatts.jatts(<span class="string">"你好"</span>+username)</span><br><span class="line">        <span class="comment"># 在人脸上方显示用户名和conf值（近似度）</span></span><br><span class="line">        cv2.putText(img,<span class="string">"User:"</span>+username,(x,y<span class="number">-10</span>),font,<span class="number">1</span>,(<span class="number">0</span>,<span class="number">255</span>,<span class="number">0</span>),<span class="number">3</span>)</span><br><span class="line">        cv2.putText(img, <span class="string">"Conf:"</span> + str(conf), (x, y - <span class="number">50</span>), font, <span class="number">1</span>, (<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>), <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">    cv2.imshow(<span class="string">'img'</span>,img)</span><br><span class="line">    <span class="comment"># 推出按钮=q</span></span><br><span class="line">    <span class="keyword">if</span> cv2.waitKey(<span class="number">1</span>) &amp; <span class="number">0xFF</span>==ord(<span class="string">'q'</span>):</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">cap.release()</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
-<h3 id="问题1-卡顿现象"><a href="#问题1-卡顿现象" class="headerlink" title="问题1 卡顿现象"></a>问题1 卡顿现象</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>:</span><br><span class="line">  <span class="comment"># 图像处理code</span></span><br><span class="line">  <span class="keyword">if</span>( (username !=<span class="string">"Unknown"</span>) &amp; flag==<span class="keyword">False</span>):</span><br><span class="line">      flag=<span class="keyword">True</span></span><br><span class="line">      jatts.jatts(<span class="string">"你好"</span>+username)</span><br></pre></td></tr></table></figure>
-<p>在while的频率大概10次每秒，在while之中调用api导致突然画面会卡住，有没有让图像处理和声音处理分开的方法。<br>比如图像的频率10次每秒，声音每秒确认一次是否问好。</p>
-<h3 id="问题2-识别精度不够"><a href="#问题2-识别精度不够" class="headerlink" title="问题2 识别精度不够"></a>问题2 识别精度不够</h3><p>现在的逻辑是第一次做出username的判断，立刻通过api说话。<br>但是username的预测现在不稳定，大概十次里面能预测对名字6次，理想状态是三秒左右按多数决给username赋值=&gt;问好。<br>比如判断成用户1=60次，用户2=40次，所以应该识别成用户1</p>
+<h2 id="操作环境"><a href="#操作环境" class="headerlink" title="操作环境"></a>操作环境</h2><ul>
+<li>windows10 ，（Linux 应该也可以，没试过）</li>
+<li>python3.5.0</li>
+<li>python 主要用到的库<ul>
+<li>opencv3.3.1 图像处理用</li>
+<li>gTTS 文字转语音用</li>
+<li>pygame 播放语音文件</li>
+<li>threading 多线程处理</li>
+</ul>
+</li>
+</ul>
+<p>注意：python和opencv的版本不一样的话，无法执行。<br>如何安装python和opencv看<a href="https://qiita.com/hitomatagi/items/d5d475a446ec9c73261e" target="_blank" rel="noopener">这个链接</a>或者自己谷歌。</p>
+<h2 id="文章连接"><a href="#文章连接" class="headerlink" title="文章连接"></a>文章连接</h2><p>1.<a href="/2017/12/17/python-face-01/" title="[用Python写一个简单的脸部识别项目(1)|opencv 截取脸部图片]">[用Python写一个简单的脸部识别项目(1)|opencv 截取脸部图片]</a></p>
+<p>2.<a href="/2017/12/24/python-face-02/" title="[用Python写一个简单的脸部识别项目(2)|谷歌语音api]">[用Python写一个简单的脸部识别项目(2)|谷歌语音api]</a>  </p>
+<p>3.<a href="/2017/12/24/python-face-03/" title="[用Python写一个简单的脸部识别项目(3)|训练数据并测试]">[用Python写一个简单的脸部识别项目(3)|训练数据并测试]</a>  </p>
+<p>4.<a href="/2017/12/21/python-face-04/" title="[用Python写一个简单的脸部识别项目(4)|与语音api结合，实现多线程]">[用Python写一个简单的脸部识别项目(4)|与语音api结合，实现多线程]</a>  </p>
 
       
     </div>
@@ -472,6 +485,35 @@
     <div>
       
         
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2017/12/24/python-face-all/">用Python写一个简单的脸部识别项目|汇总</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 caili-zhang 的个人博客">caili-zhang</a></p>
+  <p><span>发布时间:</span>2017年12月24日 - 05:12</p>
+  <p><span>最后更新:</span>2017年12月24日 - 05:12</p>
+  <p><span>原始链接:</span><a href="/2017/12/24/python-face-all/" title="用Python写一个简单的脸部识别项目|汇总">https://caili-zhang.github.io/2017/12/24/python-face-all/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://caili-zhang.github.io/2017/12/24/python-face-all/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>
+</div>
+<script>
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({
+          title: "",   
+          text: '复制成功',
+          icon: "success",
+          showConfirmButton: true
+          });
+	});
+    });
+</script>
+
 
       
     </div>
@@ -480,30 +522,6 @@
     
       <div>
         
-  
-    <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-      <div>据说喜欢打赏的人运气都不会太差</div>
-      <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-        <span>赏</span>
-      </button>
-      <div id="QR" style="display: none;">
-        
-          <div id="wechat" style="display: inline-block">
-            <img id="wechat_qr" src="/images/WeChat_pay.jpg" alt="caili-zhang WeChat Pay"/>
-            <p>微信打赏</p>
-          </div>
-        
-        
-          <div id="alipay" style="display: inline-block">
-            <img id="alipay_qr" src="/images/Ali_pay.jpg" alt="caili-zhang Alipay"/>
-            <p>支付宝打赏</p>
-          </div>
-        
-        
-      </div>
-    </div>
-  
-
 
       </div>
     
@@ -536,6 +554,10 @@
           
             <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i>python</a>
           
+            <a href="/tags/machine-learning/" rel="tag"><i class="fa fa-tag"></i>machine learning</a>
+          
+            <a href="/tags/google-speech-api/" rel="tag"><i class="fa fa-tag"></i>google speech api</a>
+          
         </div>
       
 
@@ -567,8 +589,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/17/python-face-01/" rel="next" title="用Python写一个简单的脸部识别项目(1)|opencv 截取脸部图片">
-                <i class="fa fa-chevron-left"></i> 用Python写一个简单的脸部识别项目(1)|opencv 截取脸部图片
+              <a href="/2017/12/24/python-face-02/" rel="next" title="用Python写一个简单的脸部识别项目(2)|谷歌语音api">
+                <i class="fa fa-chevron-left"></i> 用Python写一个简单的脸部识别项目(2)|谷歌语音api
               </a>
             
           </div>
@@ -577,8 +599,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/12/18/how-to-build-hexo-next-blog/" rel="prev" title="零基础学习在github上搭建hexo个人博客">
-                零基础学习在github上搭建hexo个人博客 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/12/24/python-face-03/" rel="prev" title="用Python写一个简单的脸部识别项目(3)|训练数据并测试">
+                用Python写一个简单的脸部识别项目(3)|训练数据并测试 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -595,17 +617,17 @@
           
               <li class="related-posts-item"><a href="/2017/12/24/python-face-03/">用Python写一个简单的脸部识别项目(3)|训练数据并测试</a></li>
           
-              <li class="related-posts-item"><a href="/2017/12/24/python-face-all/">用Python写一个简单的脸部识别项目|汇总</a></li>
+              <li class="related-posts-item"><a href="/2017/12/21/python-face-04/">用Python写一个简单的脸部识别项目(4)|与语音api结合，实现多线程</a></li>
+          
+              <li class="related-posts-item"><a href="/2017/12/17/python-face-01/">用Python写一个简单的脸部识别项目(1)|opencv 截取脸部图片</a></li>
           
               <li class="related-posts-item"><a href="/2017/12/21/python-observer-pattern/">python observer pattern【学习资料】</a></li>
-          
-              <li class="related-posts-item"><a href="/2017/12/21/python-face-04/">用Python写一个简单的脸部识别项目(4)|与语音api结合，实现多线程</a></li>
           
               <li class="related-posts-item"><a href="/2017/12/20/python-crawler-tutorial/">python爬虫【学习资料】</a></li>
           
               <li class="related-posts-item"><a href="/2017/12/18/python-multi-threading/">理解多线程【学习资料】</a></li>
           
-              <li class="related-posts-item"><a href="/2017/12/17/python-face-01/">用Python写一个简单的脸部识别项目(1)|opencv 截取脸部图片</a></li>
+              <li class="related-posts-item"><a href="/2017/12/18/python-face-problem-01/">python 遇到的问题</a></li>
           
           </ul>
         
@@ -787,7 +809,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#代码：Github"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x4EE3;&#x7801;&#xFF1A;Github" class="headerlink" title="&#x4EE3;&#x7801;&#xFF1A;Github"></a>&#x4EE3;&#x7801;&#xFF1A;<a href="https://github.com/caili-zhang/facial_recognition" target="_blank" rel="noopener">Github</a></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题描述"><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x95EE;&#x9898;&#x63CF;&#x8FF0;" class="headerlink" title="&#x95EE;&#x9898;&#x63CF;&#x8FF0;"></a>&#x95EE;&#x9898;&#x63CF;&#x8FF0;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件"><span class="nav-number">2.1.</span> <span class="nav-text"><a href="#&#x6587;&#x4EF6;" class="headerlink" title="&#x6587;&#x4EF6;"></a>&#x6587;&#x4EF6;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主要代码"><span class="nav-number">2.2.</span> <span class="nav-text"><a href="#&#x4E3B;&#x8981;&#x4EE3;&#x7801;" class="headerlink" title="&#x4E3B;&#x8981;&#x4EE3;&#x7801;"></a>&#x4E3B;&#x8981;&#x4EE3;&#x7801;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题1-卡顿现象"><span class="nav-number">2.3.</span> <span class="nav-text"><a href="#&#x95EE;&#x9898;1-&#x5361;&#x987F;&#x73B0;&#x8C61;" class="headerlink" title="&#x95EE;&#x9898;1 &#x5361;&#x987F;&#x73B0;&#x8C61;"></a>&#x95EE;&#x9898;1 &#x5361;&#x987F;&#x73B0;&#x8C61;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题2-识别精度不够"><span class="nav-number">2.4.</span> <span class="nav-text"><a href="#&#x95EE;&#x9898;2-&#x8BC6;&#x522B;&#x7CBE;&#x5EA6;&#x4E0D;&#x591F;" class="headerlink" title="&#x95EE;&#x9898;2 &#x8BC6;&#x522B;&#x7CBE;&#x5EA6;&#x4E0D;&#x591F;"></a>&#x95EE;&#x9898;2 &#x8BC6;&#x522B;&#x7CBE;&#x5EA6;&#x4E0D;&#x591F;</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x53C2;&#x8003;&#x8D44;&#x6599;" class="headerlink" title="&#x53C2;&#x8003;&#x8D44;&#x6599;"></a>&#x53C2;&#x8003;&#x8D44;&#x6599;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目标"><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x76EE;&#x6807;" class="headerlink" title="&#x76EE;&#x6807;"></a>&#x76EE;&#x6807;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作环境"><span class="nav-number">3.</span> <span class="nav-text"><a href="#&#x64CD;&#x4F5C;&#x73AF;&#x5883;" class="headerlink" title="&#x64CD;&#x4F5C;&#x73AF;&#x5883;"></a>&#x64CD;&#x4F5C;&#x73AF;&#x5883;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章连接"><span class="nav-number">4.</span> <span class="nav-text"><a href="#&#x6587;&#x7AE0;&#x8FDE;&#x63A5;" class="headerlink" title="&#x6587;&#x7AE0;&#x8FDE;&#x63A5;"></a>&#x6587;&#x7AE0;&#x8FDE;&#x63A5;</span></a></li></ol></div>
             
 
           </div>
@@ -970,9 +992,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://caili-zhang.github.io/2017/12/18/python-face-problem-01/';
-          this.page.identifier = '2017/12/18/python-face-problem-01/';
-          this.page.title = 'python 遇到的问题';
+          this.page.url = 'https://caili-zhang.github.io/2017/12/24/python-face-all/';
+          this.page.identifier = '2017/12/24/python-face-all/';
+          this.page.title = '用Python写一个简单的脸部识别项目|汇总';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://caili.disqus.com/embed.js';

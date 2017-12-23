@@ -127,16 +127,17 @@
 
 
 
-<meta name="description" content="好记性不如烂键盘，不懂就先敲出来">
-<meta property="og:type" content="website">
-<meta property="og:title" content="caili blog">
-<meta property="og:url" content="https://caili-zhang.github.io/archives/2017/12/index.html">
+<meta name="description" content="上一篇[用Python写一个简单的脸部识别项目(1)|opencv 截取脸部图片]介绍了怎么用opencv 截取图片，我想实现的功能是识别出人脸后，按人名对其问好。这就需要能够将文字转化声音的API，查到python的库里面有谷歌的API 基本思路  写一个函数接收文字信息，调用谷歌API就能说话 谷歌API能生成MP3文件，用pygame的包就能播放  代码实现12345678910111213">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用Python写一个简单的脸部识别项目(2)|谷歌语音api">
+<meta property="og:url" content="https://caili-zhang.github.io/2017/12/24/python-face-02/index.html">
 <meta property="og:site_name" content="caili blog">
-<meta property="og:description" content="好记性不如烂键盘，不懂就先敲出来">
+<meta property="og:description" content="上一篇[用Python写一个简单的脸部识别项目(1)|opencv 截取脸部图片]介绍了怎么用opencv 截取图片，我想实现的功能是识别出人脸后，按人名对其问好。这就需要能够将文字转化声音的API，查到python的库里面有谷歌的API 基本思路  写一个函数接收文字信息，调用谷歌API就能说话 谷歌API能生成MP3文件，用pygame的包就能播放  代码实现12345678910111213">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-23T20:19:39.515Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="caili blog">
-<meta name="twitter:description" content="好记性不如烂键盘，不懂就先敲出来">
+<meta name="twitter:title" content="用Python写一个简单的脸部识别项目(2)|谷歌语音api">
+<meta name="twitter:description" content="上一篇[用Python写一个简单的脸部识别项目(1)|opencv 截取脸部图片]介绍了怎么用opencv 截取图片，我想实现的功能是识别出人脸后，按人名对其问好。这就需要能够将文字转化声音的API，查到python的库里面有谷歌的API 基本思路  写一个函数接收文字信息，调用谷歌API就能说话 谷歌API能生成MP3文件，用pygame的包就能播放  代码实现12345678910111213">
 
 
 
@@ -166,13 +167,13 @@
 
 
 
-  <link rel="canonical" href="https://caili-zhang.github.io/archives/2017/12/"/>
+  <link rel="canonical" href="https://caili-zhang.github.io/2017/12/24/python-face-02/"/>
 
 
 
 
 
-  <title>归档 | caili blog</title>
+  <title>用Python写一个简单的脸部识别项目(2)|谷歌语音api | caili blog</title>
   
 <script>
   window.fbAsyncInit = function() {
@@ -218,7 +219,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -332,407 +333,222 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://caili-zhang.github.io/2017/12/24/python-face-02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="caili-zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/mypic.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="caili blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">用Python写一个简单的脸部识别项目(2)|谷歌语音api</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-24T04:56:13+09:00">
+                2017-12-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 10 篇日志。 继续努力。
-      </span>
 
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2017">2017</h1>
-          </div>
-        
-        
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/24/python-face-02/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/12/24/python-face-02/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
-        
+          
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">本文总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/24/python-face-03/" itemprop="url">
-              
-                <span itemprop="name">用Python写一个简单的脸部识别项目(3)|训练数据并测试</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-24T05:46:48+09:00"
-              content="2017-12-24" >
-          12-24
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+        </div>
+      </header>
+    
 
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/24/python-face-all/" itemprop="url">
-              
-                <span itemprop="name">用Python写一个简单的脸部识别项目|汇总</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-24T05:27:00+09:00"
-              content="2017-12-24" >
-          12-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/24/python-face-02/" itemprop="url">
-              
-                <span itemprop="name">用Python写一个简单的脸部识别项目(2)|谷歌语音api</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-24T04:56:13+09:00"
-              content="2017-12-24" >
-          12-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/21/python-observer-pattern/" itemprop="url">
-              
-                <span itemprop="name">python observer pattern【学习资料】</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-21T20:25:33+09:00"
-              content="2017-12-21" >
-          12-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p>上一篇<a href="/2017/12/17/python-face-01/" title="[用Python写一个简单的脸部识别项目(1)|opencv 截取脸部图片]">[用Python写一个简单的脸部识别项目(1)|opencv 截取脸部图片]</a>介绍了怎么用opencv 截取图片，我想实现的功能是识别出人脸后，按人名对其问好。<br>这就需要能够将文字转化声音的API，查到python的库里面有谷歌的API</p>
+<p>基本思路</p>
+<ul>
+<li>写一个函数接收文字信息，调用谷歌API就能说话</li>
+<li>谷歌API能生成MP3文件，用pygame的包就能播放</li>
+</ul>
+<p>代码实现<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> gtts <span class="keyword">import</span> gTTS</span><br><span class="line"><span class="keyword">import</span> pygame</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">jatts</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,words=<span class="string">'こんにちわ'</span>,filename=<span class="string">'temp.mp3'</span>)</span>:</span></span><br><span class="line"></span><br><span class="line">        self.filename = filename</span><br><span class="line">        self.words=words</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">speak</span><span class="params">(self)</span>:</span></span><br><span class="line">    	<span class="comment">#调用谷歌api将文字转成MP3</span></span><br><span class="line">        <span class="comment">#https://cloud.google.com/speech/docs/languages?hl=ja 查语言的代码</span></span><br><span class="line">        <span class="comment">#默认英文， 日文ja， 中文cmn-Hans-CN ，台湾腔 cmn-Hant-TW，粤语yue-Hant-HK</span></span><br><span class="line">        tts = gTTS(text=self.words, lang=<span class="string">'ja'</span>)</span><br><span class="line">        tts.save(self.filename)</span><br><span class="line">        <span class="comment"># mixer初始化</span></span><br><span class="line">        pygame.mixer.init()</span><br><span class="line">        <span class="comment"># 读取MP3文件并播放</span></span><br><span class="line">        <span class="keyword">with</span> open(self.filename, <span class="string">'rb'</span>) <span class="keyword">as</span> file_object:</span><br><span class="line">            pygame.mixer.music.load(file_object)</span><br><span class="line">            <span class="comment"># 播放1次，-1是循环播放</span></span><br><span class="line">            pygame.mixer.music.play(<span class="number">1</span>)</span><br><span class="line">            <span class="comment"># 等待播放结束</span></span><br><span class="line">            <span class="keyword">while</span> pygame.mixer.music.get_busy():</span><br><span class="line">                pygame.time.Clock().tick(<span class="number">10</span>)</span><br><span class="line">            pygame.mixer.music.stop()</span><br><span class="line">            pygame.mixer.quit()</span><br><span class="line"></span><br><span class="line"><span class="comment">#生成实例</span></span><br><span class="line">speaker = jatts(<span class="string">"aaaa"</span>)</span><br><span class="line">speaker.speak()</span><br></pre></td></tr></table></figure></p>
 
       
-
+    </div>
+    
+    
+    
+    <div>
+      
         
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/21/python-face-04/" itemprop="url">
-              
-                <span itemprop="name">用Python写一个简单的脸部识别项目(4)|与语音api结合，实现多线程</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-21T02:08:07+09:00"
-              content="2017-12-21" >
-          12-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
 
       
+    </div>
+    
 
-        
-        
-        
-
-        
-        
-
+    
+      <div>
         
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/20/python-crawler-tutorial/" itemprop="url">
-              
-                <span itemprop="name">python爬虫【学习资料】</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-20T02:29:31+09:00"
-              content="2017-12-20" >
-          12-20
-        </time>
       </div>
-
-    </header>
-  </article>
+    
 
 
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/18/python-multi-threading/" itemprop="url">
-              
-                <span itemprop="name">理解多线程【学习资料】</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-18T20:12:05+09:00"
-              content="2017-12-18" >
-          12-18
-        </time>
-      </div>
-
-    </header>
-  </article>
+    
+    <div>
+	  
+  <script type="text/javascript">
+      google_ad_client = "ca-pub-3435046434963372";
+      google_ad_slot = "9417880209";
+      google_ad_width = 320;
+      google_ad_height = 100;
+  </script>
+  <!-- blog-ad -->
+  <script type="text/javascript"
+  src="//pagead2.googlesyndication.com/pagead/show_ads.js">
+  </script>
 
 
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/18/how-to-build-hexo-next-blog/" itemprop="url">
-              
-                <span itemprop="name">零基础学习在github上搭建hexo个人博客</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-18T19:20:16+09:00"
-              content="2017-12-18" >
-          12-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/18/python-face-problem-01/" itemprop="url">
-              
-                <span itemprop="name">python 遇到的问题</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-18T06:37:29+09:00"
-              content="2017-12-18" >
-          12-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/17/python-face-01/" itemprop="url">
-              
-                <span itemprop="name">用Python写一个简单的脸部识别项目(1)|opencv 截取脸部图片</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-17T22:55:19+09:00"
-              content="2017-12-17" >
-          12-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
 
     </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+        <!-- AddToAny BEGIN -->
+        <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+          <a class="a2a_button_facebook"></a>
+          <a class="a2a_button_twitter a2a_counter"></a>
+          <a class="a2a_button_wechat a2a_counter"></a>
+          <a class="a2a_button_sina_weibo a2a_counter"></a>
+          <a class="a2a_button_douban a2a_counter"></a>
+        </div>
+        <script async src="https://static.addtoany.com/menu/page.js"></script>
+        <!-- AddToAny END -->
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/21/python-observer-pattern/" rel="next" title="python observer pattern【学习资料】">
+                <i class="fa fa-chevron-left"></i> python observer pattern【学习资料】
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/24/python-face-all/" rel="prev" title="用Python写一个简单的脸部识别项目|汇总">
+                用Python写一个简单的脸部识别项目|汇总 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+      
+      
+      
+
+      
+        
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -740,6 +556,20 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -1016,6 +846,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
@@ -1033,6 +867,18 @@
       <script id="dsq-count-scr" src="https://caili.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://caili-zhang.github.io/2017/12/24/python-face-02/';
+          this.page.identifier = '2017/12/24/python-face-02/';
+          this.page.title = '用Python写一个简单的脸部识别项目(2)|谷歌语音api';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://caili.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   

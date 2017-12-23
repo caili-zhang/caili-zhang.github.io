@@ -505,6 +505,7 @@ code {
 }
 pre {
   padding: 10px;
+  word-wrap: break-word;
 }
 pre code {
   padding: 0;
@@ -2014,7 +2015,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #fff;
+  background: #feffff;
 }
 .links-of-blogroll {
   font-size: 13px;

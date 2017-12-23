@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Moda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="python,machine learning,google speech api,multithread," />
+
+
+
+
+
+
+
+
+  <meta property="fb:admins" content="100002389393442" />
+  <meta property="fb:app_id" content="1520960688030232" />
+
+
+
+<meta name="description" content="[用Python写一个简单的脸部识别项目|汇总]这个系列的第四篇文章，这篇介绍如何将脸部识别和语音结合在一起。  实现多线程为什么需要多线程摄像头在不停的扫描和计算图像的相似度占据很大的计算量，同时要处理谷歌的speech2text API会造成卡顿的现象。 摄像头画面的更新，脸部识别，声音应该分开成不同的线程。">
+<meta name="keywords" content="python,machine learning,google speech api,multithread">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用Python写一个简单的脸部识别项目(4)|与语音api结合，实现多线程">
+<meta property="og:url" content="https://caili-zhang.github.io/2017/12/21/python-face-04/index.html">
+<meta property="og:site_name" content="caili blog">
+<meta property="og:description" content="[用Python写一个简单的脸部识别项目|汇总]这个系列的第四篇文章，这篇介绍如何将脸部识别和语音结合在一起。  实现多线程为什么需要多线程摄像头在不停的扫描和计算图像的相似度占据很大的计算量，同时要处理谷歌的speech2text API会造成卡顿的现象。 摄像头画面的更新，脸部识别，声音应该分开成不同的线程。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-23T22:34:34.207Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用Python写一个简单的脸部识别项目(4)|与语音api结合，实现多线程">
+<meta name="twitter:description" content="[用Python写一个简单的脸部识别项目|汇总]这个系列的第四篇文章，这篇介绍如何将脸部识别和语音结合在一起。  实现多线程为什么需要多线程摄像头在不停的扫描和计算图像的相似度占据很大的计算量，同时要处理谷歌的speech2text API会造成卡顿的现象。 摄像头画面的更新，脸部识别，声音应该分开成不同的线程。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://caili-zhang.github.io/2017/12/21/python-face-04/"/>
+
+
+
+
+
+  <title>用Python写一个简单的脸部识别项目(4)|与语音api结合，实现多线程 | caili blog</title>
+  
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1520960688030232',
+      xfbml      : true,
+      version    : 'v2.10'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_Hans/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-110980705-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">caili blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Keep It Simple & Real</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-hexo-tips">
+          <a href="/hexo-tips/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            hexo-tips
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://caili-zhang.github.io/2017/12/21/python-face-04/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="caili-zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/mypic.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="caili blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">用Python写一个简单的脸部识别项目(4)|与语音api结合，实现多线程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-21T02:08:07+09:00">
+                2017-12-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/programming/" itemprop="url" rel="index">
+                    <span itemprop="name">programming</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/programming/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/21/python-face-04/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/12/21/python-face-04/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">本文总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p><a href="/2017/12/24/python-face-all/" title="[用Python写一个简单的脸部识别项目|汇总]">[用Python写一个简单的脸部识别项目|汇总]</a>这个系列的第四篇文章，这篇介绍如何将脸部识别和语音结合在一起。</p>
+</blockquote>
+<h2 id="实现多线程"><a href="#实现多线程" class="headerlink" title="实现多线程"></a>实现多线程</h2><h3 id="为什么需要多线程"><a href="#为什么需要多线程" class="headerlink" title="为什么需要多线程"></a>为什么需要多线程</h3><p>摄像头在不停的扫描和计算图像的相似度占据很大的计算量，同时要处理谷歌的speech2text API会造成卡顿的现象。</p>
+<p>摄像头画面的更新，脸部识别，声音应该分开成不同的线程。<br><a id="more"></a></p>
+<h2 id="多线程的实现"><a href="#多线程的实现" class="headerlink" title="多线程的实现"></a>多线程的实现</h2><ul>
+<li>主线程：画面更新</li>
+<li>副线程1：识别出人脸的位置，并识别出人名</li>
+<li>副线程2：识别出人名后调出谷歌API</li>
+<li>如何将class的不同函数分成不同的线程<ul>
+<li>新建threaded函数，用wrapper函数包起来，在要thread的函数上头加上@threaded，<a href="https://stackoverflow.com/questions/19846332/python-threading-inside-a-class" target="_blank" rel="noopener">好难解释看这个stack overflow的帖子吧</a><h2 id="观察者模式实现-Observe-Pattern"><a href="#观察者模式实现-Observe-Pattern" class="headerlink" title="观察者模式实现 Observe Pattern"></a>观察者模式实现 Observe Pattern</h2></li>
+</ul>
+</li>
+<li>Observer Pattern的概念<a href="/2017/12/21/python-observer-pattern/" title="[Observer Pattern 学习资料]">[Observer Pattern 学习资料]</a></li>
+<li>语音不需要不停的播放，收到人名的时候播放就行了</li>
+<li>Publisher：faceDetector class</li>
+<li>Subscriber: speaker class</li>
+</ul>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="生成多线程的wrapper"><a href="#生成多线程的wrapper" class="headerlink" title="生成多线程的wrapper"></a>生成多线程的wrapper</h3><figure class="highlight plain"><figcaption><span>faceDetector.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def threaded(fn):</span><br><span class="line">    def wrapper(*args, **kwargs):</span><br><span class="line">        thread = threading.Thread(target=fn, args=args, kwargs=kwargs)</span><br><span class="line">        thread.daemon=True</span><br><span class="line">        thread.start()</span><br><span class="line">        return thread</span><br><span class="line">    return wrapper</span><br></pre></td></tr></table></figure>
+<h3 id="speaker-class的代码"><a href="#speaker-class的代码" class="headerlink" title="speaker class的代码"></a>speaker class的代码</h3><figure class="highlight python"><figcaption><span>faceDetector.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> jatts <span class="comment">#这是之前自己写的jatts class 文件，连接谷歌语音</span></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Speaker</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name=<span class="string">'Speaker'</span>)</span>:</span></span><br><span class="line">        self.name=name</span><br><span class="line">    <span class="comment"># 收到名字 生成实例，调用实例的speak函数</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">update</span><span class="params">(self,message)</span>:</span></span><br><span class="line">        speaker = jatts(message)</span><br><span class="line">        speaker.speak()</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h3 id="faceDetector-class的代码"><a href="#faceDetector-class的代码" class="headerlink" title="faceDetector class的代码"></a>faceDetector class的代码</h3><figure class="highlight python"><figcaption><span>faceDetector.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FaceDetector</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="comment"># observer pattern用的，保存subscriber object</span></span><br><span class="line">        self.subscribers=dict()</span><br><span class="line">        <span class="comment"># 读取识别人脸位置的模型</span></span><br><span class="line">        self.detector = cv2.CascadeClassifier(<span class="string">'haarcascade_frontalface_default.xml'</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment">#摄像机的设定</span></span><br><span class="line">        self.cap = cv2.VideoCapture(<span class="number">0</span>)</span><br><span class="line">        ret, self.img = self.cap.read()</span><br><span class="line">        self.cap.set(cv2.CAP_PROP_FPS, <span class="number">25</span>)  <span class="comment"># FPS</span></span><br><span class="line">        self.cap.set(cv2.CAP_PROP_BUFFERSIZE,<span class="number">3</span>) <span class="comment"># 缓存几张图片</span></span><br><span class="line">        self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, <span class="number">640</span>)  <span class="comment"># 摄像头解析度设定</span></span><br><span class="line">        self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, <span class="number">480</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 选好算法，读取之前训练好的模型</span></span><br><span class="line">        self.recognizer = cv2.face.LBPHFaceRecognizer_create()</span><br><span class="line">        self.recognizer.read(<span class="string">"trainingData.yml"</span>)</span><br><span class="line">        self.faces=np.array([])<span class="comment">#人脸所在位置的xy坐标和width，height</span></span><br><span class="line">        self.gray=[] <span class="comment"># 保存灰化之后的图片数据，节省计算量</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 显示在画面上的情报 要用到的各种变量</span></span><br><span class="line">        self.id = <span class="number">-1</span> <span class="comment"># user ID</span></span><br><span class="line">        self.conf=<span class="number">0.0</span> <span class="comment"># 摄像机提取的图片于学习模型的距离，越小越像</span></span><br><span class="line">        self.font = cv2.FONT_HERSHEY_SIMPLEX</span><br><span class="line">        self.detect_threshold = <span class="number">10</span><span class="comment">#还未实现</span></span><br><span class="line">        self.username = <span class="string">""</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 侦测出脸部所在位置，并更新各种参数</span></span><br><span class="line"><span class="meta">    @threaded</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">detectFaceArea</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">            time.sleep(<span class="number">0.05</span>)</span><br><span class="line">            ret, self.img = self.cap.read()</span><br><span class="line">            self.gray = cv2.cvtColor(self.img, cv2.COLOR_BGR2GRAY)</span><br><span class="line"></span><br><span class="line">            faces = self.detector.detectMultiScale(self.gray, <span class="number">1.3</span>, <span class="number">5</span>)</span><br><span class="line">            <span class="keyword">if</span>(faces!= ()):</span><br><span class="line">                self.faces=faces</span><br><span class="line">            <span class="keyword">for</span> (x,y,h,w) <span class="keyword">in</span> faces:</span><br><span class="line">                self.id, self.conf = self.recognizer.predict(self.gray[y:y + h, x:x + w])</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">update</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="comment"># 画面更新以及各种描写的处理</span></span><br><span class="line">        username=<span class="string">""</span></span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">            ret, self.img = self.cap.read()</span><br><span class="line">            <span class="keyword">for</span> (x, y, w, h) <span class="keyword">in</span> self.faces:</span><br><span class="line">                <span class="comment"># draw rectangle around faces (x,y) start point w=width h=high ,color , thickness</span></span><br><span class="line">                cv2.rectangle(self.img, (x, y), (x + w, y + h), (<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>), <span class="number">2</span>)</span><br><span class="line">                <span class="keyword">if</span> (self.conf &gt; <span class="number">90</span>):</span><br><span class="line">                    username = <span class="string">"Unknown"</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">if</span> (self.id == <span class="number">1</span>):</span><br><span class="line">                        username = <span class="string">"chou"</span></span><br><span class="line">                    <span class="keyword">elif</span> (self.id == <span class="number">2</span>):</span><br><span class="line">                        username = <span class="string">"bbbb"</span></span><br><span class="line"></span><br><span class="line">                    <span class="keyword">elif</span> (self.id == <span class="number">-1</span>):</span><br><span class="line">                        username = <span class="string">"Unknown"</span></span><br><span class="line"></span><br><span class="line">                <span class="comment"># 显示出人名等信息</span></span><br><span class="line">                cv2.putText(self.img, <span class="string">"User:"</span> + username+ (x, y - <span class="number">10</span>), self.font, <span class="number">1</span>, (<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>), <span class="number">3</span>)</span><br><span class="line">                cv2.putText(self.img, <span class="string">"Conf:"</span> + str(self.conf), (x, y - <span class="number">50</span>), self.font, <span class="number">1</span>, (<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>), <span class="number">3</span>)</span><br><span class="line">                self.username=username</span><br><span class="line"></span><br><span class="line">            cv2.imshow(<span class="string">'aaa'</span>, self.img)</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 按q键 结束程序</span></span><br><span class="line">            <span class="keyword">if</span> cv2.waitKey(<span class="number">1</span>) &amp; <span class="number">0xFF</span> == ord(<span class="string">'q'</span>):</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">end</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.cap.release()</span><br><span class="line">        cv2.destroyAllWindows()</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">register</span><span class="params">(self,who,callback=None)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> callback <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            callback=getattr(who,<span class="string">'update'</span>)</span><br><span class="line">        self.subscribers[who]=callback</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">unregister</span><span class="params">(self,who)</span>:</span></span><br><span class="line">        <span class="keyword">del</span> self.subscribers[who]</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dispath</span><span class="params">(self,message)</span>:</span></span><br><span class="line">        <span class="comment"># 这里的callable指向的是subscriber的update函数</span></span><br><span class="line">        <span class="keyword">for</span> subscriber,callable <span class="keyword">in</span> self.subscribers.items():</span><br><span class="line">            callable(message)</span><br><span class="line"></span><br><span class="line"><span class="meta">    @threaded</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sendName</span><span class="params">(self)</span>:</span><span class="comment">#</span></span><br><span class="line">        lastName = <span class="string">""</span></span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">            time.sleep(<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">if</span>(self.username!=<span class="string">""</span> <span class="keyword">and</span> self.username!=lastName):</span><br><span class="line">                self.dispath(self.username+<span class="string">"hello"</span>)</span><br><span class="line">                lastName = self.username</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="主程序"><a href="#主程序" class="headerlink" title="主程序"></a>主程序</h3><figure class="highlight python"><figcaption><span>faceDetector.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__==<span class="string">'__main__'</span>:</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 脸部识别器生成</span></span><br><span class="line">    face=FaceDetector()</span><br><span class="line">    <span class="comment"># 语音实例生成</span></span><br><span class="line">    speaker=Speaker()</span><br><span class="line">    <span class="comment"># 将语音的实例添加到face实例中，即speaker开始监听face的消息</span></span><br><span class="line">    face.register(speaker,speaker.update)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#　副线程thread-1 :1，识别出人脸的位置 2，识别对应人名</span></span><br><span class="line">    face.detectFaceArea()</span><br><span class="line">    <span class="comment"># 副线程thread-2 :１,识别出新的人名时向speaker发消息 2，speaker接收后说话</span></span><br><span class="line">    face.sendName()</span><br><span class="line">    <span class="comment"># 主线程 MainThread :画面更新</span></span><br><span class="line">    face.update()</span><br><span class="line"></span><br><span class="line">    face.end()</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2017/12/21/python-face-04/">用Python写一个简单的脸部识别项目(4)|与语音api结合，实现多线程</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 caili-zhang 的个人博客">caili-zhang</a></p>
+  <p><span>发布时间:</span>2017年12月21日 - 02:12</p>
+  <p><span>最后更新:</span>2017年12月24日 - 07:12</p>
+  <p><span>原始链接:</span><a href="/2017/12/21/python-face-04/" title="用Python写一个简单的脸部识别项目(4)|与语音api结合，实现多线程">https://caili-zhang.github.io/2017/12/21/python-face-04/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://caili-zhang.github.io/2017/12/21/python-face-04/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>
+</div>
+<script>
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({
+          title: "",   
+          text: '复制成功',
+          icon: "success",
+          showConfirmButton: true
+          });
+	});
+    });
+</script>
+
+
+      
+    </div>
+    
+
+    
+      <div>
+        
+  
+    <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+      <div>据说喜欢打赏的人运气都不会太差</div>
+      <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+        <span>赏</span>
+      </button>
+      <div id="QR" style="display: none;">
+        
+          <div id="wechat" style="display: inline-block">
+            <img id="wechat_qr" src="/images/WeChat_pay.jpg" alt="caili-zhang WeChat Pay"/>
+            <p>微信打赏</p>
+          </div>
+        
+        
+          <div id="alipay" style="display: inline-block">
+            <img id="alipay_qr" src="/images/Ali_pay.jpg" alt="caili-zhang Alipay"/>
+            <p>支付宝打赏</p>
+          </div>
+        
+        
+      </div>
+    </div>
+  
+
+
+      </div>
+    
+
+
+    
+    <div>
+	  
+  <script type="text/javascript">
+      google_ad_client = "ca-pub-3435046434963372";
+      google_ad_slot = "9417880209";
+      google_ad_width = 320;
+      google_ad_height = 100;
+  </script>
+  <!-- blog-ad -->
+  <script type="text/javascript"
+  src="//pagead2.googlesyndication.com/pagead/show_ads.js">
+  </script>
+
+
+
+    </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i>python</a>
+          
+            <a href="/tags/machine-learning/" rel="tag"><i class="fa fa-tag"></i>machine learning</a>
+          
+            <a href="/tags/google-speech-api/" rel="tag"><i class="fa fa-tag"></i>google speech api</a>
+          
+            <a href="/tags/multithread/" rel="tag"><i class="fa fa-tag"></i>multithread</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+        <!-- AddToAny BEGIN -->
+        <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+          <a class="a2a_button_facebook"></a>
+          <a class="a2a_button_twitter a2a_counter"></a>
+          <a class="a2a_button_wechat a2a_counter"></a>
+          <a class="a2a_button_sina_weibo a2a_counter"></a>
+          <a class="a2a_button_douban a2a_counter"></a>
+        </div>
+        <script async src="https://static.addtoany.com/menu/page.js"></script>
+        <!-- AddToAny END -->
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/20/python-crawler-tutorial/" rel="next" title="python爬虫【学习资料】">
+                <i class="fa fa-chevron-left"></i> python爬虫【学习资料】
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/21/python-observer-pattern/" rel="prev" title="python observer pattern【学习资料】">
+                python observer pattern【学习资料】 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+      
+      
+      
+
+      
+        
+          <h3 class="article-title" style="font-size: 20px;">相关文章</h3>
+          <ul class="related-posts">
+          
+              <li class="related-posts-item"><a href="/2017/12/24/python-face-03/">用Python写一个简单的脸部识别项目(3)|训练数据并测试</a></li>
+          
+              <li class="related-posts-item"><a href="/2017/12/24/python-face-all/">用Python写一个简单的脸部识别项目|汇总</a></li>
+          
+              <li class="related-posts-item"><a href="/2017/12/18/python-multi-threading/">理解多线程【学习资料】</a></li>
+          
+              <li class="related-posts-item"><a href="/2017/12/17/python-face-01/">用Python写一个简单的脸部识别项目(1)|opencv 截取脸部图片</a></li>
+          
+              <li class="related-posts-item"><a href="/2017/12/21/python-observer-pattern/">python observer pattern【学习资料】</a></li>
+          
+              <li class="related-posts-item"><a href="/2017/12/20/python-crawler-tutorial/">python爬虫【学习资料】</a></li>
+          
+              <li class="related-posts-item"><a href="/2017/12/18/python-face-problem-01/">python 遇到的问题</a></li>
+          
+          </ul>
+        
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/mypic.jpg"
+                alt="caili-zhang" />
+            
+              <p class="site-author-name" itemprop="name">caili-zhang</p>
+              <p class="site-description motion-element" itemprop="description">好记性不如烂键盘，不懂就先敲出来</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/caili-zhang" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/chali_chan" target="_blank" title="Twitter">
+                    
+                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.facebook.com/zairitsu.chou" target="_blank" title="FB Page">
+                    
+                      <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://btc-sokuho.com" title="ビットコイン速報" target="_blank">ビットコイン速報</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现多线程"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x5B9E;&#x73B0;&#x591A;&#x7EBF;&#x7A0B;" class="headerlink" title="&#x5B9E;&#x73B0;&#x591A;&#x7EBF;&#x7A0B;"></a>&#x5B9E;&#x73B0;&#x591A;&#x7EBF;&#x7A0B;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么需要多线程"><span class="nav-number">1.1.</span> <span class="nav-text"><a href="#&#x4E3A;&#x4EC0;&#x4E48;&#x9700;&#x8981;&#x591A;&#x7EBF;&#x7A0B;" class="headerlink" title="&#x4E3A;&#x4EC0;&#x4E48;&#x9700;&#x8981;&#x591A;&#x7EBF;&#x7A0B;"></a>&#x4E3A;&#x4EC0;&#x4E48;&#x9700;&#x8981;&#x591A;&#x7EBF;&#x7A0B;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多线程的实现"><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x591A;&#x7EBF;&#x7A0B;&#x7684;&#x5B9E;&#x73B0;" class="headerlink" title="&#x591A;&#x7EBF;&#x7A0B;&#x7684;&#x5B9E;&#x73B0;"></a>&#x591A;&#x7EBF;&#x7A0B;&#x7684;&#x5B9E;&#x73B0;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#观察者模式实现-Observe-Pattern"><span class="nav-number">3.</span> <span class="nav-text"><a href="#&#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F;&#x5B9E;&#x73B0;-Observe-Pattern" class="headerlink" title="&#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F;&#x5B9E;&#x73B0; Observe Pattern"></a>&#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F;&#x5B9E;&#x73B0; Observe Pattern</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码实现"><span class="nav-number">4.</span> <span class="nav-text"><a href="#&#x4EE3;&#x7801;&#x5B9E;&#x73B0;" class="headerlink" title="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;"></a>&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#生成多线程的wrapper"><span class="nav-number">4.1.</span> <span class="nav-text"><a href="#&#x751F;&#x6210;&#x591A;&#x7EBF;&#x7A0B;&#x7684;wrapper" class="headerlink" title="&#x751F;&#x6210;&#x591A;&#x7EBF;&#x7A0B;&#x7684;wrapper"></a>&#x751F;&#x6210;&#x591A;&#x7EBF;&#x7A0B;&#x7684;wrapper</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#speaker-class的代码"><span class="nav-number">4.2.</span> <span class="nav-text"><a href="#speaker-class&#x7684;&#x4EE3;&#x7801;" class="headerlink" title="speaker class&#x7684;&#x4EE3;&#x7801;"></a>speaker class&#x7684;&#x4EE3;&#x7801;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#faceDetector-class的代码"><span class="nav-number">4.3.</span> <span class="nav-text"><a href="#faceDetector-class&#x7684;&#x4EE3;&#x7801;" class="headerlink" title="faceDetector class&#x7684;&#x4EE3;&#x7801;"></a>faceDetector class&#x7684;&#x4EE3;&#x7801;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主程序"><span class="nav-number">4.4.</span> <span class="nav-text"><a href="#&#x4E3B;&#x7A0B;&#x5E8F;" class="headerlink" title="&#x4E3B;&#x7A0B;&#x5E8F;"></a>&#x4E3B;&#x7A0B;&#x5E8F;</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">caili-zhang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">本站访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://caili.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://caili-zhang.github.io/2017/12/21/python-face-04/';
+          this.page.identifier = '2017/12/21/python-face-04/';
+          this.page.title = '用Python写一个简单的脸部识别项目(4)|与语音api结合，实现多线程';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://caili.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
